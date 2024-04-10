@@ -297,10 +297,10 @@ class GlobalOneDegreeSetup(VerosSetup):
         if settings.enable_eke:
             average_vars += ["eke", "K_gm", "L_rossby", "L_rhines"]
 
-        state.diagnostics["averages"].output_variables = average_vars
-        state.diagnostics["cfl_monitor"].output_frequency = 86400.0
-        state.diagnostics["snapshot"].output_frequency = 1#365 * 86400 / 24.0
-        state.diagnostics["overturning"].output_frequency = 365 * 86400
+        state.diagnostics["averages"].output_variables      = average_vars
+        state.diagnostics["cfl_monitor"].output_frequency   = 86400.0
+        state.diagnostics["snapshot"].output_frequency      = 48#365 * 86400 / 24.0
+        state.diagnostics["overturning"].output_frequency   = 365 * 86400
         state.diagnostics["overturning"].sampling_frequency = 365 * 86400 / 24.0
         state.diagnostics["energy"].output_frequency = 365 * 86400
         state.diagnostics["energy"].sampling_frequency = 365 * 86400 / 24.0
