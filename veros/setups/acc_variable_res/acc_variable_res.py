@@ -25,7 +25,7 @@ from veros.distributed import global_min, global_max
 from veros.core.operators import numpy as npx, update, at
 
 
-class ACCSetup(VerosSetup):
+class ACCResSetup(VerosSetup):
     """A model using spherical coordinates with a partially closed domain representing the Atlantic and ACC.
 
     Wind forcing over the channel part and buoyancy relaxation drive a large-scale meridional overturning circulation.
@@ -41,13 +41,15 @@ class ACCSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc"
+        settings.identifier = "/media/administrateur/B612AA5912AA1E7D/veros_runs/acc/acc_simulation_quarter/acc_simulation_quarter"
         settings.description = "My ACC setup"
+        settings.restart_input_filename = None#"acc_restart_from_50000_test_diag_50000.restart.h5"
 
-        settings.nx, settings.ny, settings.nz = 30, 42, 15
+        res = 1/4
+        settings.nx, settings.ny, settings.nz = 241,321,15#,30, 42, 15
         settings.dt_mom = 4800
         settings.dt_tracer = 86400 / 2.0
-        settings.runlen = 40#86400 * 365
+        settings.runlen = 100000 * settings.dt_tracer
 
         settings.x_origin = 0.0
         settings.y_origin = -40.0
@@ -59,11 +61,11 @@ class ACCSetup(VerosSetup):
         settings.K_iso_0 = 1000.0
         settings.K_iso_steep = 500.0
         settings.iso_dslope = 0.005
-        settings.iso_slopec = 0.01
+        settings.iso_slopec = 0.0001
         settings.enable_skew_diffusion = True
 
         settings.enable_hor_friction = True
-        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11
+        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11#/((2/res)**2)
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
 
@@ -82,7 +84,7 @@ class ACCSetup(VerosSetup):
         settings.kappaH_min = 2e-5
         settings.enable_kappaH_profile = True
 
-        settings.K_gm_0 = 1000.0
+        settings.K_gm_0 = 1000.0/((2/res)**2)
         settings.enable_eke = True
         settings.eke_k_max = 1e4
         settings.eke_c_k = 0.4
@@ -91,7 +93,7 @@ class ACCSetup(VerosSetup):
         settings.eke_crhin = 1.0
         settings.eke_lmin = 100.0
         settings.enable_eke_superbee_advection = True
-        settings.enable_eke_isopycnal_diffusion = True
+        settings.enable_eke_isopycnal_diffusion = False#True
 
         settings.enable_idemix = False
 
@@ -109,8 +111,8 @@ class ACCSetup(VerosSetup):
         ddz = npx.array(
             [50.0, 70.0, 100.0, 140.0, 190.0, 240.0, 290.0, 340.0, 390.0, 440.0, 490.0, 540.0, 590.0, 640.0, 690.0]
         )
-        vs.dxt = update(vs.dxt, at[...], 2.0)
-        vs.dyt = update(vs.dyt, at[...], 2.0)
+        vs.dxt = update(vs.dxt, at[...], 1/4)
+        vs.dyt = update(vs.dyt, at[...], 1/4)
         vs.dzt = update(vs.dzt, at[...], ddz[::-1] / 2.5)
 
     @veros_routine
@@ -178,7 +180,7 @@ class ACCSetup(VerosSetup):
         settings = state.settings
         diagnostics = state.diagnostics
 
-        diagnostics["snapshot"].output_frequency = 86400 * 10
+        #diagnostics["snapshot"].output_frequency = 86400 * 10
         diagnostics["averages"].output_variables = (
             "salt",
             "temp",
@@ -191,9 +193,9 @@ class ACCSetup(VerosSetup):
         )
         diagnostics["averages"].output_frequency = 365 * 86400.0
         diagnostics["averages"].sampling_frequency = settings.dt_tracer * 10
-        diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
-        diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
-        diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
+        #diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
+        #diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
+        #diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
         diagnostics["energy"].output_frequency = 365 * 86400.0 / 48
         diagnostics["energy"].sampling_frequency = settings.dt_tracer * 10
 

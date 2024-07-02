@@ -22,13 +22,14 @@ class ACCSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc"
+        settings.identifier = "/media/administrateur/B612AA5912AA1E7D/veros_runs/acc/acc_simulation_rbot_d10/acc_post_spinup_rbot_config_per_10"
         settings.description = "My ACC setup"
+        settings.restart_input_filename = "acc_restart_from_50000_test_diag_50000.restart.h5"
 
         settings.nx, settings.ny, settings.nz = 30, 42, 15
         settings.dt_mom = 4800
-        settings.dt_tracer = 86400 / 2.0
-        settings.runlen = 86400 * 365
+        settings.dt_tracer = 4800#86400 / 2.0
+        settings.runlen = 50000 * settings.dt_tracer#86400 #30000 * settings.dt_tracer#86400 * 365
 
         settings.x_origin = 0.0
         settings.y_origin = -40.0
@@ -44,12 +45,12 @@ class ACCSetup(VerosSetup):
         settings.enable_skew_diffusion = True
 
         settings.enable_hor_friction = True
-        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11
+        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11#*10  #219872.23064520778
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
 
         settings.enable_bottom_friction = True
-        settings.r_bot = 1e-5
+        settings.r_bot = 1e-5#/10#*100
 
         settings.enable_implicit_vert_friction = True
 
@@ -158,8 +159,10 @@ class ACCSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-
-        diagnostics["snapshot"].output_frequency = 86400 * 10
+        diagnostics["training"].output_frequency = settings.dt_mom  # 86400 * 10
+        
+        #diagnostics["snapshot"].output_frequency = settings.dt_tracer#86400 * 10
+        
         diagnostics["averages"].output_variables = (
             "salt",
             "temp",
@@ -170,14 +173,16 @@ class ACCSetup(VerosSetup):
             "surface_taux",
             "surface_tauy",
         )
+        diagnostics["acc_monitor"].output_frequency = settings.dt_tracer #365 * 86400.0
+        diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer #365 * 86400.0
+
         diagnostics["averages"].output_frequency = 365 * 86400.0
         diagnostics["averages"].sampling_frequency = settings.dt_tracer * 10
         diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
         diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
-        diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
+        #diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
         diagnostics["energy"].output_frequency = 365 * 86400.0 / 48
         diagnostics["energy"].sampling_frequency = settings.dt_tracer * 10
-
     @veros_routine
     def after_timestep(self, state):
         pass

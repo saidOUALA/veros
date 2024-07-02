@@ -72,7 +72,7 @@ A minimal example to install and run Veros:
 ```bash
 $ pip install veros
 $ veros copy-setup acc --to /tmp/acc
-$ veros run /tmp/acc/acc.py
+$ veros run /tmp/acc/acc_learning.py
 ```
 
 For more detailed installation instructions, have a look at [our
@@ -96,7 +96,7 @@ After setting up your model, all you need to do is call the `setup` and
 executed via `veros run`:
 
 ```bash
-$ veros run acc.py
+$ veros run acc_learning.py
 ```
 
 For more information on using Veros, have a look at [our

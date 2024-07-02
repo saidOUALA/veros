@@ -8,9 +8,10 @@ def create_default_diagnostics(state):
     from veros.diagnostics.energy import Energy
     from veros.diagnostics.overturning import Overturning
     from veros.diagnostics.snapshot import Snapshot
+    from veros.diagnostics.snapshot import SaveTrainingData
     from veros.diagnostics.tracer_monitor import TracerMonitor
-
-    return {Diag.name: Diag(state) for Diag in (Averages, CFLMonitor, Energy, Overturning, Snapshot, TracerMonitor)}
+    from veros.diagnostics.acc_monitor import ACCMonitor
+    return {Diag.name: Diag(state) for Diag in (Averages, CFLMonitor, Energy, Overturning, Snapshot, SaveTrainingData, TracerMonitor, ACCMonitor)}
 
 
 def initialize(state):

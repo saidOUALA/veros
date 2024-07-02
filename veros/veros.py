@@ -321,7 +321,7 @@ class VerosSetup(metaclass=abc.ABCMeta):
         # permutate time indices
         vs.taum1, vs.tau, vs.taup1 = vs.tau, vs.taup1, vs.taum1
 
-    def run(self, show_progress_bar=None):
+    def run(self, show_progress_bar=None, extract_sequence = False, restart_vars = None):
         """Main routine of the simulation.
 
         Note:
@@ -336,8 +336,22 @@ class VerosSetup(metaclass=abc.ABCMeta):
 
         self._ensure_setup_done()
 
+
+
         vs = self.state.variables
         settings = self.state.settings
+
+        if extract_sequence:
+            extracted_seq={}
+            for key in restart_vars.keys():
+                var_data = getattr(vs, key)
+                if restart_vars[key].dims:
+                    tmask = tuple(
+                        self.state.variables.tau if dim in 'timesteps' else slice(None) for dim in
+                        restart_vars[key].dims)
+                    extracted_seq[key] = [var_data[tmask]]
+                else:
+                    extracted_seq[key] = [var_data]
 
         time_length, time_unit = time.format_time(settings.runlen)
         logger.info(f"\nStarting integration for {time_length:.1f} {time_unit}")
@@ -353,6 +367,15 @@ class VerosSetup(metaclass=abc.ABCMeta):
             with signals.signals_to_exception(), pbar:
                 while vs.time - start_time < settings.runlen:
                     self.step(self.state)
+                    if extract_sequence:
+                        for key in restart_vars.keys():
+                            if restart_vars[key].dims:
+                                var_data = getattr(vs, key)
+                                tmask = tuple(
+                                    self.state.variables.tau if dim in 'timesteps' else slice(None) for dim in restart_vars[key].dims)
+                                extracted_seq[key].append(var_data[tmask])
+                            else:
+                                extracted_seq[key].append(var_data)
 
                     if not timer_context.active:
                         timer_context.active = True
@@ -370,6 +393,8 @@ class VerosSetup(metaclass=abc.ABCMeta):
             restart.write_restart(self.state, force=True)
             self._timing_summary()
 
+        if extract_sequence:
+            return extracted_seq
     def _timing_summary(self):
         timing_summary = []
 

@@ -2,7 +2,7 @@ import json
 import datetime
 import threading
 import contextlib
-
+import netCDF4 as nc
 import numpy as np
 
 from veros import (
@@ -20,6 +20,62 @@ http://ferret.pmel.noaa.gov/Ferret/documentation/coards-netcdf-conventions
 """
 
 
+
+def extract_init_cond(dataset, restart_vars, idx=0):
+    initial_condition = {}
+    for key in restart_vars.keys():
+        if key == 'taum1':
+            initial_condition['taum1'] = 0
+        elif key == 'tau':
+            initial_condition['tau'] = 1
+        elif key == 'taup1':
+            initial_condition['taup1'] = 2
+        elif key == 'time':
+            initial_condition['time'] = 0
+        elif key == 'K_diss_v':
+            initial_condition[key] = dataset[key][:].filled(fill_value=0.0)[idx - 1].T
+        else:
+            initial_condition[key] = dataset[key][:].filled(fill_value=0.0)[idx - 1:idx + 2].T
+            initial_condition[key][..., -1] = 0 * initial_condition[key][..., -1]
+    return initial_condition
+
+def load_timesteps_between(file_path, start_timestep, end_timestep):
+    """
+    Load data between specified timesteps from all variables in a NetCDF file.
+
+    Parameters:
+    - file_path: str, path to the NetCDF file
+    - start_timestep: int, the starting timestep (inclusive)
+    - end_timestep: int, the ending timestep (exclusive)
+
+    Returns:
+    - data_chunks: dict, containing subsets of each variable
+    """
+    # Open the NetCDF file
+    dataset = nc.Dataset(file_path, 'r')
+
+    # Initialize a dictionary to store the subsets of each variable
+    data_chunks = {}
+
+    # Iterate over all variables in the dataset
+    for var_name in dataset.variables:
+        variable = dataset.variables[var_name]
+
+        # Check if the variable has a time dimension (assuming the first dimension is time)
+        if variable.ndim > 0 and variable.shape[0] >= end_timestep:
+            # Load the data between the specified timesteps
+            data_chunks[var_name] = variable[start_timestep:end_timestep, ...]
+        else:
+            # If the variable does not have a time dimension, load it completely
+            data_chunks[var_name] = variable[...]
+
+    # Close the dataset
+    dataset.close()
+
+    return data_chunks
+
+
+
 def _get_setup_code(pyfile):
     try:
         with open(pyfile, "r") as f:
@@ -28,7 +84,7 @@ def _get_setup_code(pyfile):
         return "UNKNOWN"
 
 
-def initialize_file(state, ncfile, extra_dimensions=None, create_time_dimension=True):
+def initialize_file(state, ncfile, extra_dimensions=None, create_time_dimension=True, include_ghosts=False):
     """
     Define standard grid in netcdf file
     """
@@ -76,10 +132,10 @@ def initialize_file(state, ncfile, extra_dimensions=None, create_time_dimension=
             var = variables.Variable(dim, (dim,), time_dependent=False)
             var_data = np.arange(dimensions[dim])
 
-        dimsize = variables.get_shape(dimensions, var.dims[::-1], include_ghosts=False, local=False)[0]
+        dimsize = variables.get_shape(dimensions, var.dims[::-1], include_ghosts=include_ghosts, local=False)[0]
         ncfile.dimensions[dim] = dimsize
-        initialize_variable(state, dim, var, ncfile)
-        write_variable(state, dim, var, var_data, ncfile)
+        initialize_variable(state, dim, var, ncfile, include_ghosts=include_ghosts)
+        write_variable(state, dim, var, var_data, ncfile, include_ghosts=include_ghosts)
 
     if create_time_dimension:
         ncfile.dimensions["Time"] = None
@@ -91,7 +147,7 @@ def initialize_file(state, ncfile, extra_dimensions=None, create_time_dimension=
         )
 
 
-def initialize_variable(state, key, var, ncfile):
+def initialize_variable(state, key, var, ncfile, include_ghosts=False):
     if var.dims is None:
         dims = ()
     else:
@@ -109,7 +165,7 @@ def initialize_variable(state, key, var, ncfile):
         kwargs.update(compression="gzip", compression_opts=1)
 
     chunksize = [
-        variables.get_shape(state.dimensions, (d,), local=True, include_ghosts=False)[0] if d in state.dimensions else 1
+        variables.get_shape(state.dimensions, (d,), local=True, include_ghosts=include_ghosts)[0] if d in state.dimensions else 1
         for d in dims
     ]
 
@@ -137,7 +193,7 @@ def add_dimension(dim, dim_size, ncfile):
     ncfile.dimensions[dim] = int(dim_size)
 
 
-def write_variable(state, key, var, var_data, ncfile, time_step=-1):
+def write_variable(state, key, var, var_data, ncfile, time_step=-1, include_ghosts=False):
     var_data = var_data * var.scale
 
     gridmask = var.get_mask(state.settings, state.variables)
@@ -147,11 +203,15 @@ def write_variable(state, key, var, var_data, ncfile, time_step=-1):
 
     if var.dims:
         tmask = tuple(state.variables.tau if dim in variables.TIMESTEPS else slice(None) for dim in var.dims)
-        var_data = variables.remove_ghosts(var_data, var.dims)[tmask].T
+        if not include_ghosts:
+            var_data = variables.remove_ghosts(var_data, var.dims)[tmask].T
+        else:
+            var_data = var_data[tmask].T
 
     var_obj = ncfile.variables[key]
-
     nx, ny = state.dimensions["xt"], state.dimensions["yt"]
+    if include_ghosts:
+        nx, ny = nx + 4, ny + 4
     chunk, _ = distributed.get_chunk_slices(nx, ny, var_obj.dimensions)
 
     if "Time" in var_obj.dimensions:

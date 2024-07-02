@@ -15,7 +15,6 @@ def _normalize(*arrays):
 
     return (a / norm for a in arrays)
 
-
 class RestartSetup(ACCSetup):
     @veros_routine
     def set_diagnostics(self, state):

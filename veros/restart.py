@@ -1,5 +1,4 @@
 import os
-
 from veros import logger, runtime_settings, runtime_state
 from veros.io_tools import hdf5 as h5tools
 from veros.signals import do_not_disturb

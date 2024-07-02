@@ -80,6 +80,7 @@ class Snapshot(VerosDiagnostic):
 
             if active:
                 self.output_variables.append(var)
+        self.include_ghosts = False
 
     def initialize(self, state):
         vs = state.variables
@@ -89,7 +90,7 @@ class Snapshot(VerosDiagnostic):
             var.write_to_restart = False
 
         self.variables = vs
-        self.initialize_output(state)
+        self.initialize_output(state, self.include_ghosts)
 
     def diagnose(self, state):
         pass
@@ -101,6 +102,19 @@ class Snapshot(VerosDiagnostic):
         logger.info(f" Writing snapshot at {time_length:.2f} {time_unit}")
 
         if not os.path.isfile(self.get_output_file_name(state)):
-            self.initialize_output(state)
+            self.initialize_output(state, self.include_ghosts)
 
-        self.write_output(state)
+        self.write_output(state, self.include_ghosts)
+
+class SaveTrainingData(Snapshot):
+    """Writes training data, saves only the active variables needed for restart
+    """
+    output_path = "{identifier}.training.nc"
+    name = "training"  #:
+    output_frequency = None  #: Frequency (in seconds) in which output is written.
+
+    def __init__(self, state):
+        restart_vars = {var: meta for var, meta in state.var_meta.items() if
+                        meta.write_to_restart and meta.active}
+        self.output_variables = list(restart_vars.keys())
+        self.include_ghosts = True

@@ -9,7 +9,7 @@ BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 DATA_FILES = tools.get_assets("global_1deg", os.path.join(BASE_PATH, "assets.json"))
 
 
-class GlobalOneDegreeSetup(VerosSetup):
+class GlobalOneDegreeLearningSetup(VerosSetup):
     """Global 1 degree model with 115 vertical levels.
 
     `Adapted from pyOM2 <https://wiki.zmaw.de/ifm/TO/pyOM2/1x1%20global%20model>`_.
@@ -22,7 +22,7 @@ class GlobalOneDegreeSetup(VerosSetup):
         """
         settings = state.settings
 
-        settings.identifier = "global_1deg"
+        settings.identifier = "global_1deg_learning"
         settings.description = "My global 1 degree setup"
 
         settings.nx = 360
@@ -30,7 +30,7 @@ class GlobalOneDegreeSetup(VerosSetup):
         settings.nz = 115
         settings.dt_mom = 1800.0
         settings.dt_tracer = 1800.0
-        settings.runlen = 3 * settings.dt_tracer
+        settings.runlen = 2 * settings.dt_tracer
 
         settings.x_origin = 91.0
         settings.y_origin = -79.0
@@ -38,7 +38,7 @@ class GlobalOneDegreeSetup(VerosSetup):
         settings.coord_degree = True
         settings.enable_cyclic_x = True
 
-        settings.enable_hor_friction = True
+        settings.enable_hor_friction = False#True
         settings.A_h = 5e4
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
@@ -281,7 +281,7 @@ class GlobalOneDegreeSetup(VerosSetup):
 
         state.diagnostics["averages"].output_variables = average_vars
         state.diagnostics["cfl_monitor"].output_frequency = 86400.0
-        state.diagnostics["snapshot"].output_frequency = 1800#365 * 86400 / 24.0
+        state.diagnostics["snapshot"].output_frequency = 20#365 * 86400 / 24.0
         state.diagnostics["overturning"].output_frequency = 365 * 86400
         state.diagnostics["overturning"].sampling_frequency = 365 * 86400 / 24.0
         state.diagnostics["energy"].output_frequency = 365 * 86400

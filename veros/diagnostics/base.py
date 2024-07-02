@@ -63,7 +63,7 @@ class VerosDiagnostic(metaclass=abc.ABCMeta):
         return self.output_path.format(**statedict)
 
     @do_not_disturb
-    def initialize_output(self, state):
+    def initialize_output(self, state, include_ghosts=False):
         inactive = not self.output_frequency and not self.sampling_frequency
         no_output = not self.output_path or not self.output_variables
 
@@ -81,19 +81,19 @@ class VerosDiagnostic(metaclass=abc.ABCMeta):
         distributed.barrier()
 
         with nctools.threaded_io(output_path, "w") as outfile:
-            nctools.initialize_file(state, outfile, extra_dimensions=self.extra_dimensions)
+            nctools.initialize_file(state, outfile, extra_dimensions=self.extra_dimensions, include_ghosts=include_ghosts)
 
             for key in self.output_variables:
                 var = self.var_meta[key]
                 if key not in outfile.variables:
-                    nctools.initialize_variable(state, key, var, outfile)
+                    nctools.initialize_variable(state, key, var, outfile, include_ghosts=include_ghosts)
 
                 if not var.time_dependent:
                     var_data = self.variables.get(key)
-                    nctools.write_variable(state, key, var, var_data, outfile)
+                    nctools.write_variable(state, key, var, var_data, outfile, include_ghosts=include_ghosts)
 
     @do_not_disturb
-    def write_output(self, state):
+    def write_output(self, state, include_ghosts=False):
         vs = state.variables
 
         if runtime_settings.diskless_mode:
@@ -106,4 +106,4 @@ class VerosDiagnostic(metaclass=abc.ABCMeta):
             for key in self.output_variables:
                 var = self.var_meta[key]
                 var_data = self.variables.get(key)
-                nctools.write_variable(state, key, var, var_data, outfile)
+                nctools.write_variable(state, key, var, var_data, outfile, include_ghosts=include_ghosts)
