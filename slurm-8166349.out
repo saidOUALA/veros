@@ -1,0 +1,2311 @@
+Importing core modules
+ Using computational backend numpy on cpu
+ Runtime settings are now locked
+
+This is Veros v0+untagged.1783.ge272e4a.dirty, but the given setup was generated with v0+untagged.1774.g4039f76.dirty. Consider switching to this version of Veros or updating your setup file.
+
+Running model setup
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined
+Traceback (most recent call last):
+  File "/scratch/so2495/conda-envs/veros/bin/veros", line 8, in <module>
+    sys.exit(cli())
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/scratch/so2495/conda-envs/veros/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 152, in cli
+    return run(setup_file, *args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/cli/veros_run.py", line 86, in run
+    sim.setup()
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/veros.py", line 211, in setup
+    self.set_grid(self.state)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/routines.py", line 215, in __call__
+    out = self.function(*args, **kwargs)
+  File "/scratch/so2495/code/OceanHybridModels/veros/veros/setups/acc_variable_res/acc_variable_res.py", line 117, in set_grid
+    vs.dxt = update(vs.dxt, at[...], res)
+NameError: name 'res' is not defined

@@ -41,15 +41,19 @@ class ACCResSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "/media/administrateur/B612AA5912AA1E7D/veros_runs/acc/acc_simulation_quarter/acc_simulation_quarter"
+        settings.identifier = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_viz"
         settings.description = "My ACC setup"
-        settings.restart_input_filename = None#"acc_restart_from_50000_test_diag_50000.restart.h5"
-
+        settings.restart_input_filename = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_50000.restart.h5"
+        
+        nb_years = 4
+        seconds_per_year = 31557600
         res = 1/4
-        settings.nx, settings.ny, settings.nz = 241,321,15#,30, 42, 15
-        settings.dt_mom = 4800
-        settings.dt_tracer = 86400 / 2.0
-        settings.runlen = 100000 * settings.dt_tracer
+        delta = 2/res
+        ratio = delta**2
+        settings.nx, settings.ny, settings.nz = 248,324,15#,30, 42, 15
+        settings.dt_mom = 4800/delta
+        settings.dt_tracer = 4800/delta
+        settings.runlen = nb_years * seconds_per_year#/(settings.dt_tracer/delta) #delta*100000 * settings.dt_tracer*2/3
 
         settings.x_origin = 0.0
         settings.y_origin = -40.0
@@ -57,15 +61,16 @@ class ACCResSetup(VerosSetup):
         settings.coord_degree = True
         settings.enable_cyclic_x = True
 
+        # coefs for isopycnal tracer diffusion 
         settings.enable_neutral_diffusion = True
-        settings.K_iso_0 = 1000.0
-        settings.K_iso_steep = 500.0
+        settings.K_iso_0 = 1000.0/ratio
+        settings.K_iso_steep = 500.0/ratio
         settings.iso_dslope = 0.005
-        settings.iso_slopec = 0.0001
+        settings.iso_slopec = 0.01
         settings.enable_skew_diffusion = True
 
         settings.enable_hor_friction = True
-        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11#/((2/res)**2)
+        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11/ratio
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
 
@@ -84,16 +89,16 @@ class ACCResSetup(VerosSetup):
         settings.kappaH_min = 2e-5
         settings.enable_kappaH_profile = True
 
-        settings.K_gm_0 = 1000.0/((2/res)**2)
+        settings.K_gm_0 = 1000.0/ratio
         settings.enable_eke = True
-        settings.eke_k_max = 1e4
+        settings.eke_k_max = 1e4/ratio
         settings.eke_c_k = 0.4
         settings.eke_c_eps = 0.5
         settings.eke_cross = 2.0
         settings.eke_crhin = 1.0
-        settings.eke_lmin = 100.0
+        settings.eke_lmin = 100.0/100
         settings.enable_eke_superbee_advection = True
-        settings.enable_eke_isopycnal_diffusion = False#True
+        settings.enable_eke_isopycnal_diffusion = True
 
         settings.enable_idemix = False
 
@@ -180,7 +185,7 @@ class ACCResSetup(VerosSetup):
         settings = state.settings
         diagnostics = state.diagnostics
 
-        #diagnostics["snapshot"].output_frequency = 86400 * 10
+        diagnostics["acc_monitor"].output_frequency = settings.dt_tracer
         diagnostics["averages"].output_variables = (
             "salt",
             "temp",
@@ -192,12 +197,12 @@ class ACCResSetup(VerosSetup):
             "surface_tauy",
         )
         diagnostics["averages"].output_frequency = 365 * 86400.0
-        diagnostics["averages"].sampling_frequency = settings.dt_tracer * 10
+        diagnostics["averages"].sampling_frequency = settings.dt_tracer
         #diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
         #diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
         #diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
-        diagnostics["energy"].output_frequency = 365 * 86400.0 / 48
-        diagnostics["energy"].sampling_frequency = settings.dt_tracer * 10
+        diagnostics["energy"].output_frequency   = settings.dt_tracer
+        diagnostics["energy"].sampling_frequency = settings.dt_tracer
 
     @veros_routine
     def after_timestep(self, state):

@@ -367,6 +367,10 @@ class VerosSetup(metaclass=abc.ABCMeta):
             with signals.signals_to_exception(), pbar:
                 while vs.time - start_time < settings.runlen:
                     self.step(self.state)
+                    
+                    if vs.itt%50000 == 0:
+                        restart.write_restart(self.state, force=True)
+                    
                     if extract_sequence:
                         for key in restart_vars.keys():
                             if restart_vars[key].dims:
@@ -381,7 +385,9 @@ class VerosSetup(metaclass=abc.ABCMeta):
                         timer_context.active = True
 
                     pbar.advance_time(settings.dt_tracer)
-
+                    #restart.write_restart(self.state, force=True)
+                    
+                    
         except:  # noqa: E722
             logger.critical(f"Stopping integration at iteration {vs.itt}")
             raise

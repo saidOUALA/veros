@@ -1,0 +1,37 @@
+srun: error: WARNING: switches lack access to 1 nodes: cn272
+Importing core modules
+ Using computational backend numpy on cpu
+ Runtime settings are now locked
+
+This is Veros v0+untagged.1783.ge272e4a.dirty, but the given setup was generated with v0+untagged.1774.g4039f76.dirty. Consider switching to this version of Veros or updating your setup file.
+
+Running model setup
+Initializing streamfunction method
+Environment variable OMP_NUM_THREADS is not set, which can lead to severely degraded performance when MPI is used.
+ Solving for boundary contribution by island 0
+ Solving for boundary contribution by island 1
+ Running diagnostic "averages" every 1.7 hours
+ Writing output for diagnostic "averages" every 1.0 years
+ Running diagnostic "energy" every 1.7 hours
+ Writing output for diagnostic "energy" every 7.6 days
+Diffusion grid factor delta_iso1 = 11.334769856875049
+
+Starting integration for 1.7 hours
+ Current iteration: 0     (0.00/1.67h |  0.0% | 0.00s/(model year) | 0.0s left)
+ Current iteration: 1     (0.17/1.67h | 10.0% | 1.25d/(model year) | 18.7s left)
+ Current iteration: 2     (0.33/1.67h | 20.0% | 1.25d/(model year) | 16.7s left)
+ Current iteration: 3     (0.50/1.67h | 30.0% | 1.26d/(model year) | 14.7s left)
+ Current iteration: 4     (0.67/1.67h | 40.0% | 1.26d/(model year) | 12.6s left)
+ Current iteration: 5     (0.83/1.67h | 50.0% | 1.26d/(model year) | 10.5s left)
+ Current iteration: 6     (1.00/1.67h | 60.0% | 1.26d/(model year) | 8.4s left)
+ Current iteration: 7     (1.17/1.67h | 70.0% | 1.26d/(model year) | 6.3s left)
+ Current iteration: 8     (1.33/1.67h | 80.0% | 1.26d/(model year) | 4.2s left)
+ Current iteration: 9     (1.50/1.67h | 90.0% | 1.26d/(model year) | 2.1s left)
+ Current iteration: 10    (1.67/1.67h | 100.0% | 1.28d/(model year) | 0.0s left)
+Integration done
+
+Writing restart file acc_runs/acc_simulation_quarter/acc_simulation_quarter_0010.restart.h5
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There is one unused database option. It is:
+Option left: name:-pc_gamg_sym_graph value: true source: code

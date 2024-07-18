@@ -1,9 +1,9 @@
 import numpy as np
 import netCDF4 as nc
 import matplotlib.pyplot as plt
-from veros.setups.acc import ACCSetup
+from veros.setups.acc_variable_res import ACCResSetup
 
-simulation = ACCSetup()
+simulation = ACCResSetup()
 simulation.setup()
 simulation.run()
 

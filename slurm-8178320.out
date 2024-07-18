@@ -1,0 +1,25 @@
+srun: error: WARNING: switches lack access to 1 nodes: cn272
+Importing core modules
+ Using computational backend numpy on cpu
+ Runtime settings are now locked
+
+This is Veros v0+untagged.1783.ge272e4a.dirty, but the given setup was generated with v0+untagged.1774.g4039f76.dirty. Consider switching to this version of Veros or updating your setup file.
+
+Running model setup
+Initializing streamfunction method
+Environment variable OMP_NUM_THREADS is not set, which can lead to severely degraded performance when MPI is used.
+ Solving for boundary contribution by island 0
+ Solving for boundary contribution by island 1
+ Running diagnostic "averages" every 1.7 hours
+ Writing output for diagnostic "averages" every 1.0 years
+ Running diagnostic "energy" every 1.7 hours
+ Writing output for diagnostic "energy" every 7.6 days
+Diffusion grid factor delta_iso1 = 11.334769856875049
+
+Starting integration for 10.3 years
+ Current iteration: 0     (0.00/10.29y |  0.0% | 0.00s/(model year) | 0.0s left)
+ Current iteration: 1     (0.00/10.29y |  0.0% | 1.95d/(model year) | 20.0d left)
+ Current iteration: 2     (0.00/10.29y |  0.0% | 1.94d/(model year) | 20.0d left)
+srun: Job step aborted: Waiting up to 17 seconds for job step to finish.
+slurmstepd: error: *** JOB 8178320 ON cn178 CANCELLED AT 2024-07-09T14:13:39 ***
+slurmstepd: error: *** STEP 8178320.0 ON cn178 CANCELLED AT 2024-07-09T14:13:39 ***
