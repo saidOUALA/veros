@@ -117,6 +117,7 @@ SETTINGS = {
     "K_h_tke": Setting(2000.0, float, "lateral diffusivity for tke"),
     # EKE
     "compute_resolved_eke": Setting(False, bool, ""),
+    "avg_file_path": Setting("UNNAMED", str, "path for u_bar and v_bar used in the computation of the resolved eke"),
     "enable_eke": Setting(False, bool, ""),
     "eke_lmin": Setting(100.0, float, "minimal length scale in m"),
     "eke_c_k": Setting(1.0, float, ""),
@@ -147,6 +148,7 @@ SETTINGS = {
     "Prandtl_tke0": Setting(
         10.0, float, "Constant Prandtl number when stratification is neglected for kappaH computation in TKE routine"
     ),
+    "acc_plot": Setting(False, bool, ""),
 }
 
 
