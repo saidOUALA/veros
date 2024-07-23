@@ -6,6 +6,7 @@ from veros.state import get_default_state
 from veros.plugins import load_plugin
 from veros.routines import veros_routine, is_veros_routine
 from veros.timer import timer_context
+from veros.io_tools.netcdf import plot_simulation_diags
 
 
 class VerosSetup(metaclass=abc.ABCMeta):
@@ -368,8 +369,8 @@ class VerosSetup(metaclass=abc.ABCMeta):
                 while vs.time - start_time < settings.runlen:
                     self.step(self.state)
                     
-                    if vs.itt%50000 == 0:
-                        restart.write_restart(self.state, force=True)
+                    #if vs.itt%50000 == 0:
+                    #    restart.write_restart(self.state, force=True)
                     
                     if extract_sequence:
                         for key in restart_vars.keys():
@@ -397,6 +398,11 @@ class VerosSetup(metaclass=abc.ABCMeta):
 
         finally:
             restart.write_restart(self.state, force=True)
+            if settings.acc_plot:
+                snapshot_bsf = vs.psi[2:-2,2:-2,vs.tau].T
+                snapshot_sst = vs.temp[2:-2,2:-2,-1, vs.tau].T
+                plot_simulation_diags(settings.identifier, snapshot_bsf, snapshot_sst, settings.compute_resolved_eke)
+            
             self._timing_summary()
 
         if extract_sequence:
