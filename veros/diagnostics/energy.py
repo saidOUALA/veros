@@ -11,6 +11,7 @@ ENERGY_VARIABLES = dict(
     nitts=Variable("nitts", None, write_to_restart=True),
     # mean energy content
     k_m=Variable("Mean kinetic energy", None, "J", "Mean kinetic energy", write_to_restart=True),
+    r_eke_m=Variable("Mean resolved eddy kinetic energy", None, "J", "Mean resolved eddy kinetic energy", write_to_restart=True),
     Hd_m=Variable("Mean dynamic enthalpy", None, "J", "Mean dynamic enthalpy", write_to_restart=True),
     eke_m=Variable("Meso-scale eddy energy", None, "J", "Meso-scale eddy energy", write_to_restart=True),
     iw_m=Variable("Internal wave energy", None, "J", "Internal wave energy", write_to_restart=True),
@@ -226,6 +227,22 @@ def diagnose_kernel(state):
             )
         )
     )
+    if settings.compute_resolved_eke:
+        r_eke_m = global_sum(
+            npx.sum(
+                vol_t
+                * 0.5
+                * (
+                    0.5 * ((vs.u[2:-2, 2:-2, :, vs.tau] - vs.u_bar[2:-2, 2:-2, :]) ** 2 + (vs.u[1:-3, 2:-2, :, vs.tau] - vs.u_bar[2:-2, 2:-2, :]) ** 2)
+                    + 0.5 * ((vs.v[2:-2, 2:-2, :, vs.tau] - vs.v_bar[2:-2, 2:-2, :]) ** 2)
+                    + (vs.v[2:-2, 1:-3, :, vs.tau] - vs.v_bar[2:-2, 2:-2, :]) ** 2
+                )
+            )
+        )
+    else:
+        r_eke_m = npx.nan
+    
+    
     p_m = global_sum(npx.sum(vol_t * vs.Hd[2:-2, 2:-2, :, vs.tau]))
     dk_m = global_sum(
         npx.sum(
@@ -365,6 +382,7 @@ def diagnose_kernel(state):
 
     return KernelOutput(
         k_m=k_m,
+        r_eke_m=k_m,
         Hd_m=p_m,
         eke_m=eke_m,
         iw_m=iw_m,

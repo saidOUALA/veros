@@ -116,6 +116,7 @@ SETTINGS = {
     "enable_tke_hor_diffusion": Setting(False, bool, ""),
     "K_h_tke": Setting(2000.0, float, "lateral diffusivity for tke"),
     # EKE
+    "compute_resolved_eke": Setting(False, bool, ""),
     "enable_eke": Setting(False, bool, ""),
     "eke_lmin": Setting(100.0, float, "minimal length scale in m"),
     "eke_c_k": Setting(1.0, float, ""),

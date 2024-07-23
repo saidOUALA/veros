@@ -393,6 +393,8 @@ VARIABLES = {
         "m g/s kg",
         "Surface salinity flux",
     ),
+    "u_bar": Variable("Zonal velocity time average", U_GRID, "m/s", "Zonal velocity time average", write_to_restart=True),
+    "v_bar": Variable("Meridional velocity time average", V_GRID, "m/s", "Meridional velocity time average", write_to_restart=True),
     "u": Variable("Zonal velocity", U_GRID + TIMESTEPS, "m/s", "Zonal velocity", write_to_restart=True),
     "v": Variable("Meridional velocity", V_GRID + TIMESTEPS, "m/s", "Meridional velocity", write_to_restart=True),
     "w": Variable("Vertical velocity", W_GRID + TIMESTEPS, "m/s", "Vertical velocity", write_to_restart=True),

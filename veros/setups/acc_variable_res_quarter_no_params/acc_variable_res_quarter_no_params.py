@@ -184,7 +184,7 @@ class ACCResQNPSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-
+        diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer
         diagnostics["acc_monitor"].output_frequency = settings.dt_tracer
         diagnostics["averages"].output_variables = (
             "salt",
