@@ -60,11 +60,11 @@ class ACCResSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_viz"
-        settings.description = "My ACC setup"
-        settings.restart_input_filename = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_50000.restart.h5"
+        settings.identifier = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup"
+        settings.description = "ACC simulation quarter spinup"
+        settings.restart_input_filename = None
         
-        nb_years = 4
+        nb_years = 5#14
         seconds_per_year = 31557600
         res = 1/4
         delta = 2/res
@@ -122,7 +122,13 @@ class ACCResSetup(VerosSetup):
         settings.enable_idemix = False
 
         settings.eq_of_state_type = 3
-
+        
+        # for diagnosing resolved eke
+        settings.compute_resolved_eke = False
+        settings.avg_file_path = None#"acc_runs/acc_simulation_quarter/acc_simulation_quarter_spinup.averages.nc"
+        # enable diagnostics plot for acc simulation
+        settings.acc_plot = True
+        
         var_meta = state.var_meta
         var_meta.update(
             t_star=Variable("t_star", ("yt",), "deg C", "Reference surface temperature"),
@@ -198,9 +204,11 @@ class ACCResSetup(VerosSetup):
         
         if settings.compute_resolved_eke:
             # load u_bar and v_bar from 
-            file_avg = nc.Dataset('acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup.averages.nc')
+            print('loading average velocities for computation of resolved eke (taking four last years of spinup)')
+            file_avg = nc.Dataset(settings.avg_file_path)
             vs.u_bar = file_avg.variables['u'][:][-4:].mean(axis = 0)
             vs.v_bar = file_avg.variables['v'][:][-4:].mean(axis = 0)
+            file_avg.close()
     @veros_routine
     def set_forcing(self, state):
         vs = state.variables
@@ -210,10 +218,12 @@ class ACCResSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-        
-        
-        diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer
-        diagnostics["acc_monitor"].output_frequency = settings.dt_tracer
+
+        diagnostics["energy"].sampling_frequency = settings.dt_tracer *10
+        diagnostics["energy"].output_frequency   = 86400.0#settings.dt_tracer
+
+        diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer *10
+        diagnostics["acc_monitor"].output_frequency = 86400.0#settings.dt_tracer 
         diagnostics["averages"].output_variables = (
             "salt",
             "temp",
@@ -229,8 +239,7 @@ class ACCResSetup(VerosSetup):
         #diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
         #diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
         #diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
-        diagnostics["energy"].output_frequency   = settings.dt_tracer
-        diagnostics["energy"].sampling_frequency = settings.dt_tracer
+
 
     @veros_routine
     def after_timestep(self, state):
