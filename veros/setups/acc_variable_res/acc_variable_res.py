@@ -103,7 +103,12 @@ class ACCResSetup(VerosSetup):
         settings.enable_idemix = False
 
         settings.eq_of_state_type = 3
-
+        # for diagnosing resolved eke
+        settings.compute_resolved_eke = True
+        settings.avg_file_path = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup.averages.nc"
+        # enable diagnostics plot for acc simulation
+        settings.acc_plot = True
+        
         var_meta = state.var_meta
         var_meta.update(
             t_star=Variable("t_star", ("yt",), "deg C", "Reference surface temperature"),
@@ -191,7 +196,15 @@ class ACCResSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-        
+        diagnostics["snapshot"].output_frequency = 86400 # 1 day
+        diagnostics["snapshot"].output_variables = (
+            "salt",
+            "temp",
+            "u",
+            "v",
+            "w",
+            "psi",
+        )
         
         diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer
         diagnostics["acc_monitor"].output_frequency = settings.dt_tracer

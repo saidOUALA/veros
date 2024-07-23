@@ -43,7 +43,7 @@ class ACCResQNPSetup(VerosSetup):
         settings = state.settings
         settings.identifier = "acc_runs/acc_simulation_quarter_no_param/acc_simulation_quarter_no_param_post_spinup_viz"
         settings.description = "My ACC setup"
-        settings.restart_input_filename = "acc_runs/acc_simulation_quarter_no_param/acc_simulation_quarter_no_param_post_spinup_50000.restart.h5"
+        settings.restart_input_filename = None#"acc_runs/acc_simulation_quarter_no_param/acc_simulation_quarter_no_param_post_spinup_50000.restart.h5"
 
         nb_years = 4
         seconds_per_year = 31557600
