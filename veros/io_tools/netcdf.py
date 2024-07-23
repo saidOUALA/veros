@@ -4,6 +4,7 @@ import threading
 import contextlib
 import netCDF4 as nc
 import numpy as np
+import matplotlib.pyplot as plt
 
 from veros import (
     logger,
@@ -20,6 +21,129 @@ http://ferret.pmel.noaa.gov/Ferret/documentation/coards-netcdf-conventions
 """
 
 
+def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_eke = False):
+    # load diag files
+    avg_file_id = output_file_path+".averages.nc"
+    nrj_file_id = output_file_path+".energy.nc"
+    acc_file_id = output_file_path+".acc_diags.nc"
+    
+    file_avg = nc.Dataset(avg_file_id)
+    file_nrj = nc.Dataset(nrj_file_id)
+    file_acc_diags = nc.Dataset(acc_file_id)
+    
+    # charge variables to plot
+    temp_mean = file_avg.variables['temp'][:,-1,:,:].mean(axis = 0)
+    psi_mean = file_avg.variables['psi'][:].mean(axis = 0)
+    zonal_temp_mean = file_avg.variables['temp'][:,:,:,:].mean(axis = -1).mean(axis = 0)
+
+
+    lon_t = file_avg.variables['xt'][:]
+    lat_t = file_avg.variables['yt'][:]
+    depth_t = file_avg.variables['zt'][:]
+
+    lon_psi = file_avg.variables['xu'][:]
+    lat_psi = file_avg.variables['yu'][:]
+        
+    
+    Time_energy = file_nrj.variables['Time'][:]
+    Time_acc_diag = file_acc_diags.variables['Time'][:]
+    if plot_r_eke:
+        r_eke = file_nrj.variables['r_eke'][:]
+
+    mke = file_nrj.variables['k_m'][:]
+    acc = file_acc_diags.variables['flux_north_south'][:]
+
+    # plot temperature zonal mean
+    plt.figure(figsize=(10, 6))
+    plt.imshow(zonal_temp_mean, extent=[lat_t.min(), lat_t.max(), depth_t.min(), depth_t.max()], aspect='auto', cmap='coolwarm', origin='lower')
+    plt.colorbar(label='Temperature zonal mean (°C)')
+    plt.title('Temperature zonal mean')
+    plt.xlabel('Latitude (degree north)')
+    plt.ylabel('Depth (m)')
+    plt.savefig(output_file_path+'Temperature_zonal_mean.png', dpi=300) 
+    plt.savefig(output_file_path+'Temperature_zonal_mean.svg')
+    plt.savefig(output_file_path+'Temperature_zonal_mean.pdf')  
+    plt.close()
+
+    # plot temperature SSt mean
+    plt.figure(figsize=(10, 6))
+    plt.pcolormesh(lon_t, lat_t, temp_mean, cmap='coolwarm', shading='auto')
+    plt.colorbar(label='Sea Surface Temperature (°C)')
+    plt.title('Sea Surface Temperature')
+    plt.xlabel('Longitude (degree east)')
+    plt.ylabel('Latitude (degree north)')
+    plt.savefig(output_file_path+'Temperature_mean_SST.png', dpi=300) 
+    plt.savefig(output_file_path+'Temperature_mean_SST.svg')
+    plt.savefig(output_file_path+'Temperature_mean_SST.pdf')  
+    plt.close()    
+    
+    # plot BSF mean
+    plt.figure(figsize=(10, 6))
+    plt.pcolormesh(lon_psi, lat_psi, psi_mean, cmap='coolwarm', shading='auto')
+    plt.colorbar(label='Streamfunction ($m^3/s$)')
+    plt.title('Streamfunction')
+    plt.xlabel('Longitude (degree east)')
+    plt.ylabel('Latitude (degree north)')
+    plt.savefig(output_file_path+'Streamfunction_mean.png', dpi=300) 
+    plt.savefig(output_file_path+'Streamfunction_mean.svg')
+    plt.savefig(output_file_path+'Streamfunction_mean.pdf')  
+    plt.close()
+
+    # plot temperature SSt mean
+    plt.figure(figsize=(10, 6))
+    plt.pcolormesh(lon_t, lat_t, temp_mean.filled(fill_value=np.nan) - snapshot_sst, cmap='coolwarm', shading='auto')
+    plt.colorbar(label='Sea Surface Temperature (°C)')
+    plt.title('Sea Surface Temperature Anomaly')
+    plt.xlabel('Longitude (degree east)')
+    plt.ylabel('Latitude (degree north)')
+    plt.savefig(output_file_path+'Temperature_mean_SST_anomaly.png', dpi=300) 
+    plt.savefig(output_file_path+'Temperature_mean_SST_anomaly.svg')
+    plt.savefig(output_file_path+'Temperature_mean_SST_anomaly.pdf')  
+    plt.close()    
+    
+    # plot BSF mean
+    plt.figure(figsize=(10, 6))
+    plt.pcolormesh(lon_psi, lat_psi, psi_mean.filled(fill_value=np.nan) - snapshot_bsf, cmap='coolwarm', shading='auto')
+    plt.colorbar(label='Streamfunction ($m^3/s$)')
+    plt.title('Streamfunction Anomaly')
+    plt.xlabel('Longitude (degree east)')
+    plt.ylabel('Latitude (degree north)')
+    plt.savefig(output_file_path+'Streamfunction_anomaly.png', dpi=300) 
+    plt.savefig(output_file_path+'Streamfunction_anomaly.svg')
+    plt.savefig(output_file_path+'Streamfunction_anomaly.pdf')  
+    plt.close()
+    
+
+    # time series
+    plt.plot(Time_energy, mke, 'b')
+    plt.xlabel('Time (day)')
+    plt.ylabel('mean kinetic energy (J)')
+    plt.savefig(output_file_path+'mke.png', dpi=300) 
+    plt.savefig(output_file_path+'mke.svg')
+    plt.savefig(output_file_path+'mke.pdf')  
+    plt.close()
+    
+    plt.plot(Time_acc_diag, acc, 'r')
+    plt.xlabel('Time (day)')
+    plt.ylabel('Volumetric flowrate  ($m^3/s$)')
+    plt.savefig(output_file_path+'volumetric_flow_rate.png', dpi=300) 
+    plt.savefig(output_file_path+'volumetric_flow_rate.svg')
+    plt.savefig(output_file_path+'volumetric_flow_rate.pdf')  
+    plt.close()   
+    
+    if plot_r_eke:
+        plt.plot(Time_energy, r_eke, 'b')
+        plt.xlabel('Time (day)')
+        plt.ylabel('resolved eke')
+        plt.savefig(output_file_path+'resolved_eke.png', dpi=300) 
+        plt.savefig(output_file_path+'resolved_eke.svg')
+        plt.savefig(output_file_path+'resolved_eke.pdf')  
+        plt.close()
+        
+    file_avg.close()
+    file_nrj.close()
+    file_acc_diags.close()
+   
 
 def extract_init_cond(dataset, restart_vars, idx=0):
     initial_condition = {}
