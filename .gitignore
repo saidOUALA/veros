@@ -2,6 +2,9 @@
 *.nc
 *.h5
 
+# log files server
+*.out
+
 # documentation and profiler output
 *.html
 

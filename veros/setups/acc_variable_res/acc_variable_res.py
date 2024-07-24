@@ -23,6 +23,7 @@ from veros import VerosSetup, veros_routine
 from veros.variables import allocate, Variable
 from veros.distributed import global_min, global_max
 from veros.core.operators import numpy as npx, update, at
+from veros.core.utilities import enforce_boundaries
 import netCDF4 as nc
 
 class ACCResSetup(VerosSetup):
@@ -41,9 +42,9 @@ class ACCResSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_viz"
+        settings.identifier = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_test"
         settings.description = "My ACC setup"
-        settings.restart_input_filename = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_50000.restart.h5"
+        settings.restart_input_filename = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup_0144.restart.h5"
         
         nb_years = 4
         seconds_per_year = 31557600
@@ -184,9 +185,13 @@ class ACCResSetup(VerosSetup):
         
         if settings.compute_resolved_eke:
             # load u_bar and v_bar from 
-            file_avg = nc.Dataset('acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup.averages.nc')
-            vs.u_bar = file_avg.variables['u'][:][-4:].mean(axis = 0)
-            vs.v_bar = file_avg.variables['v'][:][-4:].mean(axis = 0)
+            file_avg = nc.Dataset(settings.avg_file_path)
+            vs.u_bar = update(vs.u_bar, at[2:-2,2:-2,...], file_avg.variables['u'][:][-4:].mean(axis = 0).T)
+            vs.v_bar = update(vs.v_bar, at[2:-2,2:-2,...], file_avg.variables['v'][:][-4:].mean(axis = 0).T)
+            vs.u_bar = enforce_boundaries(vs.u_bar, settings.enable_cyclic_x)
+            vs.v_bar = enforce_boundaries(vs.v_bar, settings.enable_cyclic_x)
+            
+            
     @veros_routine
     def set_forcing(self, state):
         vs = state.variables

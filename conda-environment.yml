@@ -1,4 +1,4 @@
-name: veros
+name: veros-conda
 
 channels:
     - conda-forge
