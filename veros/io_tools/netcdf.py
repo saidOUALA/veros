@@ -57,7 +57,7 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     Time_energy = file_nrj.variables['Time'][:]
     Time_acc_diag = file_acc_diags.variables['Time'][:]
     if plot_r_eke:
-        r_eke = file_nrj.variables['r_eke'][:]
+        r_eke = file_nrj.variables['r_eke_m'][:]
 
     mke = file_nrj.variables['k_m'][:]
     acc = file_acc_diags.variables['flux_north_south'][:]
@@ -70,9 +70,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Temperature zonal mean')
     plt.xlabel('Latitude (degree north)')
     plt.ylabel('Depth (m)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_init_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_init_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_init_years.pdf')  
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_init_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_init_years.svg')
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_init_years.pdf')  
     plt.close()
 
     # plot temperature SSt mean
@@ -82,9 +82,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Sea Surface Temperature')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_init_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_init_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_init_years.pdf')  
+    plt.savefig(output_file_path+'.Temperature_mean_SST_init_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_mean_SST_init_years.svg')
+    plt.savefig(output_file_path+'.Temperature_mean_SST_init_years.pdf')  
     plt.close()    
     
     # plot BSF mean
@@ -94,9 +94,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Streamfunction')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_init_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_init_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_init_years.pdf')  
+    plt.savefig(output_file_path+'.Streamfunction_mean_init_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Streamfunction_mean_init_years.svg')
+    plt.savefig(output_file_path+'.Streamfunction_mean_init_years.pdf')  
     plt.close()    
     
     
@@ -107,9 +107,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Temperature zonal mean')
     plt.xlabel('Latitude (degree north)')
     plt.ylabel('Depth (m)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_last_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_last_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_last_years.pdf')  
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_last_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_last_years.svg')
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_last_years.pdf')  
     plt.close()
 
     # plot temperature SSt mean
@@ -119,9 +119,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Sea Surface Temperature')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_last_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_last_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_last_years.pdf')  
+    plt.savefig(output_file_path+'.Temperature_mean_SST_last_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_mean_SST_last_years.svg')
+    plt.savefig(output_file_path+'.Temperature_mean_SST_last_years.pdf')  
     plt.close()    
     
     # plot BSF mean
@@ -131,9 +131,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Streamfunction')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_last_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_last_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_last_years.pdf')  
+    plt.savefig(output_file_path+'.Streamfunction_mean_last_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Streamfunction_mean_last_years.svg')
+    plt.savefig(output_file_path+'.Streamfunction_mean_last_years.pdf')  
     plt.close()    
   
     # plot temperature zonal mean difference init last plt.figure(figsize=(10, 6))
@@ -142,9 +142,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Temperature zonal mean')
     plt.xlabel('Latitude (degree north)')
     plt.ylabel('Depth (m)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_diff_last_init_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_diff_last_init_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean_diff_last_init_years.pdf')  
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_diff_last_init_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_diff_last_init_years.svg')
+    plt.savefig(output_file_path+'.Temperature_zonal_mean_diff_last_init_years.pdf')  
     plt.close()
 
     # plot temperature SSt mean
@@ -154,9 +154,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Sea Surface Temperature')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_diff_last_init_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_diff_last_init_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_diff_last_init_years.pdf')  
+    plt.savefig(output_file_path+'.Temperature_mean_SST_diff_last_init_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_mean_SST_diff_last_init_years.svg')
+    plt.savefig(output_file_path+'.Temperature_mean_SST_diff_last_init_years.pdf')  
     plt.close()    
     
     # plot BSF mean
@@ -166,9 +166,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Streamfunction')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_diff_last_init_years.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_diff_last_init_years.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean_diff_last_init_years.pdf')  
+    plt.savefig(output_file_path+'.Streamfunction_mean_diff_last_init_years.png', dpi=300) 
+    plt.savefig(output_file_path+'.Streamfunction_mean_diff_last_init_years.svg')
+    plt.savefig(output_file_path+'.Streamfunction_mean_diff_last_init_years.pdf')  
     plt.close()        
     
     # plot temperature zonal mean
@@ -178,9 +178,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Temperature zonal mean')
     plt.xlabel('Latitude (degree north)')
     plt.ylabel('Depth (m)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_zonal_mean.pdf')  
+    plt.savefig(output_file_path+'.Temperature_zonal_mean.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_zonal_mean.svg')
+    plt.savefig(output_file_path+'.Temperature_zonal_mean.pdf')  
     plt.close()
 
     # plot temperature SSt mean
@@ -190,9 +190,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Sea Surface Temperature')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST.pdf')  
+    plt.savefig(output_file_path+'.Temperature_mean_SST.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_mean_SST.svg')
+    plt.savefig(output_file_path+'.Temperature_mean_SST.pdf')  
     plt.close()    
     
     # plot BSF mean
@@ -202,9 +202,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Streamfunction')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Streamfunction_mean.pdf')  
+    plt.savefig(output_file_path+'.Streamfunction_mean.png', dpi=300) 
+    plt.savefig(output_file_path+'.Streamfunction_mean.svg')
+    plt.savefig(output_file_path+'.Streamfunction_mean.pdf')  
     plt.close()
 
     # plot temperature SSt mean
@@ -214,9 +214,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Sea Surface Temperature Anomaly')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_anomaly.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_anomaly.svg')
-    plt.savefig("output_figs/"+output_file_path+'.Temperature_mean_SST_anomaly.pdf')  
+    plt.savefig(output_file_path+'.Temperature_mean_SST_anomaly.png', dpi=300) 
+    plt.savefig(output_file_path+'.Temperature_mean_SST_anomaly.svg')
+    plt.savefig(output_file_path+'.Temperature_mean_SST_anomaly.pdf')  
     plt.close()    
     
     # plot BSF mean
@@ -226,9 +226,9 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.title('Streamfunction Anomaly')
     plt.xlabel('Longitude (degree east)')
     plt.ylabel('Latitude (degree north)')
-    plt.savefig("output_figs/"+"output_figs/"+output_file_path+'.Streamfunction_anomaly.png', dpi=300) 
-    plt.savefig("output_figs/"+"output_figs/"+output_file_path+'.Streamfunction_anomaly.svg')
-    plt.savefig("output_figs/"+"output_figs/"+output_file_path+'.Streamfunction_anomaly.pdf')  
+    plt.savefig(output_file_path+'.Streamfunction_anomaly.png', dpi=300) 
+    plt.savefig(output_file_path+'.Streamfunction_anomaly.svg')
+    plt.savefig(output_file_path+'.Streamfunction_anomaly.pdf')  
     plt.close()
     
 
@@ -236,26 +236,26 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     plt.plot(Time_energy, mke, 'b')
     plt.xlabel('Time (day)')
     plt.ylabel('mean kinetic energy (J)')
-    plt.savefig("output_figs/"+output_file_path+'.mke.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.mke.svg')
-    plt.savefig("output_figs/"+output_file_path+'.mke.pdf')  
+    plt.savefig(output_file_path+'.mke.png', dpi=300) 
+    plt.savefig(output_file_path+'.mke.svg')
+    plt.savefig(output_file_path+'.mke.pdf')  
     plt.close()
     
     plt.plot(Time_acc_diag, acc, 'r')
     plt.xlabel('Time (day)')
     plt.ylabel('Volumetric flowrate  ($m^3/s$)')
-    plt.savefig("output_figs/"+output_file_path+'.volumetric_flow_rate.png', dpi=300) 
-    plt.savefig("output_figs/"+output_file_path+'.volumetric_flow_rate.svg')
-    plt.savefig("output_figs/"+output_file_path+'.volumetric_flow_rate.pdf')  
+    plt.savefig(output_file_path+'.volumetric_flow_rate.png', dpi=300) 
+    plt.savefig(output_file_path+'.volumetric_flow_rate.svg')
+    plt.savefig(output_file_path+'.volumetric_flow_rate.pdf')  
     plt.close()   
     
     if plot_r_eke:
         plt.plot(Time_energy, r_eke, 'b')
         plt.xlabel('Time (day)')
         plt.ylabel('resolved eke')
-        plt.savefig("output_figs/"+output_file_path+'.resolved_eke.png', dpi=300) 
-        plt.savefig("output_figs/"+output_file_path+'.resolved_eke.svg')
-        plt.savefig("output_figs/"+output_file_path+'.resolved_eke.pdf')  
+        plt.savefig(output_file_path+'.resolved_eke.png', dpi=300) 
+        plt.savefig(output_file_path+'.resolved_eke.svg')
+        plt.savefig(output_file_path+'.resolved_eke.pdf')  
         plt.close()
         
     file_avg.close()
