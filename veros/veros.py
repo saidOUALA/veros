@@ -6,7 +6,7 @@ from veros.state import get_default_state
 from veros.plugins import load_plugin
 from veros.routines import veros_routine, is_veros_routine
 from veros.timer import timer_context
-from veros.io_tools.netcdf import plot_simulation_diags
+from veros.io_tools.netcdf import plot_simulation_diags, viz_animations_diags
 
 
 class VerosSetup(metaclass=abc.ABCMeta):
@@ -402,6 +402,8 @@ class VerosSetup(metaclass=abc.ABCMeta):
                 snapshot_bsf = vs.psi[2:-2,2:-2,vs.tau].T
                 snapshot_sst = vs.temp[2:-2,2:-2,-1, vs.tau].T
                 plot_simulation_diags(settings.identifier, snapshot_bsf, snapshot_sst, settings.compute_resolved_eke)
+            if settings.acc_animation:
+                viz_animations_diags(settings.identifier)
             
             self._timing_summary()
 

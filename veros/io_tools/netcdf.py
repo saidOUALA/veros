@@ -5,6 +5,7 @@ import contextlib
 import netCDF4 as nc
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
 from veros import (
     logger,
@@ -19,6 +20,33 @@ from veros import (
 netCDF output is designed to follow the COARDS guidelines from
 http://ferret.pmel.noaa.gov/Ferret/documentation/coards-netcdf-conventions
 """
+
+def viz_animations_diags(output_file_path):
+    # load diag files
+    dataset = nc.Dataset(output_file_path+'.snapshot.nc')
+    file_avg = nc.Dataset(output_file_path+'.averages.nc')
+    # Replace 'time', 'lat', 'lon', and 'field' with the appropriate variable names in your NetCDF file
+    time = dataset.variables['Time'][:]
+    lat = dataset.variables['yt'][:]
+    lon = dataset.variables['xt'][:]
+
+    field_sst_mean = file_avg.variables['temp'][:,-1,:,:].mean(axis = 0)
+    field_bsf_mean = file_avg.variables['psi'][:].mean(axis = 0)
+
+    field_sst = dataset.variables['temp'][:][:,-1,:,:]  # Assuming 'field' is a 3D array (time, lat, lon)
+    field_bsf = dataset.variables['psi'][:][:,:,:]  # Assuming 'field' is a 3D array (time, lat, lon)
+
+    field_sst_anomaly = field_sst - field_sst_mean
+    field_bsf_anomaly = field_bsf - field_bsf_mean
+
+    dataset.close()
+    file_avg.close()
+
+    create_animation(field_sst, time, lon, lat, 'SST_Animation.gif', 'Sea Surface Temperature (°C)')
+    create_animation(field_bsf, time, lon, lat, 'BSF_Animation.gif', 'Streamfunction ($m^3/s$)')
+    create_animation(field_sst_anomaly, time, lon, lat, 'SST_Anomaly_Animation.gif', 'Sea Surface Temperature Anomaly (°C)')
+    create_animation(field_bsf_anomaly, time, lon, lat, 'BSF_Anomaly_Animation.gif', 'Streamfunction Anomaly ($m^3/s$)')
+
 
 
 def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_eke = False):
@@ -317,6 +345,42 @@ def load_timesteps_between(file_path, start_timestep, end_timestep):
     return data_chunks
 
 
+def create_animation(field, time, lon, lat, output_name, unit_plot):
+    # Assuming 'field' is a 3D array (time, lat, lon)
+    # Assuming lon, lat are 1D arrays
+
+    # Create a figure and axis for the plot
+    fig, ax = plt.subplots()
+
+    # Initialize the colorbar with the first frame
+    im = ax.imshow(field[0, :, :], origin='lower', extent=[lon.min(), lon.max(), lat.min(), lat.max()], cmap='coolwarm')
+    cbar = fig.colorbar(im, ax=ax, orientation='vertical')
+    cbar.set_label(unit_plot)
+
+    # Set axis labels
+    ax.set_xlabel('Longitude')
+    ax.set_ylabel('Latitude')
+
+    # Title for the first frame
+    ax.set_title(f'Time: {time[0]}')
+
+    # Function to update the plot for each frame
+    def update_frame(frame):
+        ax.clear()
+        im = ax.imshow(field[frame, :, :], origin='lower', extent=[lon.min(), lon.max(), lat.min(), lat.max()], cmap='coolwarm')
+        ax.set_xlabel('Longitude (degree east)')
+        ax.set_ylabel('Latitude (degree north)')
+        ax.set_title('Time: ' +str(time[frame]) + ' day')
+        return im,
+
+    # Create the animation
+    ani = animation.FuncAnimation(fig, update_frame, frames=len(time), interval=200, blit=False)
+
+    # Save the animation as a video file
+    ani.save(output_name, writer='ffmpeg')
+
+    plt.close()
+    
 
 def _get_setup_code(pyfile):
     try:

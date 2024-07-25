@@ -149,6 +149,7 @@ SETTINGS = {
         10.0, float, "Constant Prandtl number when stratification is neglected for kappaH computation in TKE routine"
     ),
     "acc_plot": Setting(False, bool, ""),
+    "acc_animation": Setting(False, bool, ""),
 }
 
 

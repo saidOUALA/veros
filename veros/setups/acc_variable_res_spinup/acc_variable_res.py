@@ -64,7 +64,14 @@ class ACCResSetup(VerosSetup):
         settings.description = "ACC simulation quarter spinup"
         settings.restart_input_filename = None
         
-        nb_years = 5#14
+        # for diagnosing resolved eke
+        settings.compute_resolved_eke = False
+        settings.avg_file_path = None#"acc_runs/acc_simulation_quarter/acc_simulation_quarter_spinup.averages.nc"
+        # enable diagnostics plot for acc simulation
+        settings.acc_plot = True
+        
+        
+        nb_years = 14
         seconds_per_year = 31557600
         res = 1/4
         delta = 2/res
@@ -123,12 +130,7 @@ class ACCResSetup(VerosSetup):
 
         settings.eq_of_state_type = 3
         
-        # for diagnosing resolved eke
-        settings.compute_resolved_eke = False
-        settings.avg_file_path = None#"acc_runs/acc_simulation_quarter/acc_simulation_quarter_spinup.averages.nc"
-        # enable diagnostics plot for acc simulation
-        settings.acc_plot = True
-        
+
         var_meta = state.var_meta
         var_meta.update(
             t_star=Variable("t_star", ("yt",), "deg C", "Reference surface temperature"),
@@ -202,13 +204,6 @@ class ACCResSetup(VerosSetup):
             vs.forc_iw_bottom = 1e-6 * vs.maskW[:, :, -1]
             vs.forc_iw_surface = 1e-7 * vs.maskW[:, :, -1]
         
-        if settings.compute_resolved_eke:
-            # load u_bar and v_bar from 
-            print('loading average velocities for computation of resolved eke (taking four last years of spinup)')
-            file_avg = nc.Dataset(settings.avg_file_path)
-            vs.u_bar = file_avg.variables['u'][:][-4:].mean(axis = 0)
-            vs.v_bar = file_avg.variables['v'][:][-4:].mean(axis = 0)
-            file_avg.close()
     @veros_routine
     def set_forcing(self, state):
         vs = state.variables

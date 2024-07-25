@@ -46,6 +46,13 @@ class ACCResSetup(VerosSetup):
         settings.description = "My ACC setup"
         settings.restart_input_filename = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup_0144.restart.h5"
         
+        # for diagnosing resolved eke
+        settings.compute_resolved_eke = True
+        settings.avg_file_path = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup.averages.nc"
+        # enable diagnostics plot for acc simulation
+        settings.acc_plot = True
+        settings.acc_animation = True
+        
         nb_years = 4
         seconds_per_year = 31557600
         res = 1/4
@@ -104,11 +111,7 @@ class ACCResSetup(VerosSetup):
         settings.enable_idemix = False
 
         settings.eq_of_state_type = 3
-        # for diagnosing resolved eke
-        settings.compute_resolved_eke = True
-        settings.avg_file_path = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup.averages.nc"
-        # enable diagnostics plot for acc simulation
-        settings.acc_plot = True
+
         
         var_meta = state.var_meta
         var_meta.update(
@@ -211,8 +214,6 @@ class ACCResSetup(VerosSetup):
             "psi",
         )
         
-        diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer
-        diagnostics["acc_monitor"].output_frequency = settings.dt_tracer
         diagnostics["averages"].output_variables = (
             "salt",
             "temp",
@@ -225,11 +226,12 @@ class ACCResSetup(VerosSetup):
         )
         diagnostics["averages"].output_frequency = 365 * 86400.0
         diagnostics["averages"].sampling_frequency = settings.dt_tracer
-        #diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
-        #diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
-        #diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
-        diagnostics["energy"].output_frequency   = settings.dt_tracer
-        diagnostics["energy"].sampling_frequency = settings.dt_tracer
+
+        diagnostics["energy"].sampling_frequency = settings.dt_tracer *10
+        diagnostics["energy"].output_frequency   = 86400.0#settings.dt_tracer
+
+        diagnostics["acc_monitor"].sampling_frequency = settings.dt_tracer *10
+        diagnostics["acc_monitor"].output_frequency = 86400.0#settings.dt_tracer 
 
     @veros_routine
     def after_timestep(self, state):
