@@ -68,7 +68,7 @@ class ACCResSetup(VerosSetup):
         settings.compute_resolved_eke = False
         settings.avg_file_path = None#"acc_runs/acc_simulation_quarter/acc_simulation_quarter_spinup.averages.nc"
         # enable diagnostics plot for acc simulation
-        settings.acc_plot = False
+        settings.acc_plot = True
         
         
         nb_years = 14
