@@ -42,10 +42,10 @@ def viz_animations_diags(output_file_path):
     dataset.close()
     file_avg.close()
 
-    create_animation(field_sst, time, lon, lat, 'SST_Animation.gif', 'Sea Surface Temperature (°C)')
-    create_animation(field_bsf, time, lon, lat, 'BSF_Animation.gif', 'Streamfunction ($m^3/s$)')
-    create_animation(field_sst_anomaly, time, lon, lat, 'SST_Anomaly_Animation.gif', 'Sea Surface Temperature Anomaly (°C)')
-    create_animation(field_bsf_anomaly, time, lon, lat, 'BSF_Anomaly_Animation.gif', 'Streamfunction Anomaly ($m^3/s$)')
+    create_animation(field_sst, time, lon, lat, output_file_path+'.SST_Animation.gif', 'Sea Surface Temperature (°C)')
+    create_animation(field_bsf, time, lon, lat, output_file_path+'.BSF_Animation.gif', 'Streamfunction ($m^3/s$)')
+    create_animation(field_sst_anomaly, time, lon, lat, output_file_path+'.SST_Anomaly_Animation.gif', 'Sea Surface Temperature Anomaly (°C)')
+    create_animation(field_bsf_anomaly, time, lon, lat, output_file_path+'.BSF_Anomaly_Animation.gif', 'Streamfunction Anomaly ($m^3/s$)')
 
 
 
@@ -291,7 +291,7 @@ def plot_simulation_diags(output_file_path, snapshot_bsf, snapshot_sst, plot_r_e
     file_acc_diags.close()
    
 
-def extract_init_cond(dataset, restart_vars, idx=0):
+def extract_init_cond(dataset, restart_vars, idx=1):
     initial_condition = {}
     for key in restart_vars.keys():
         if key == 'taum1':
@@ -349,11 +349,16 @@ def create_animation(field, time, lon, lat, output_name, unit_plot):
     # Assuming 'field' is a 3D array (time, lat, lon)
     # Assuming lon, lat are 1D arrays
 
+    mean = np.nanmean(field)
+    std = np.nanstd(field)
+    vmin = mean - 2 * std
+    vmax = mean + 2 * std
+    
     # Create a figure and axis for the plot
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     # Initialize the colorbar with the first frame
-    im = ax.imshow(field[0, :, :], origin='lower', extent=[lon.min(), lon.max(), lat.min(), lat.max()], cmap='coolwarm')
+    im = ax.imshow(field[0, :, :], origin='lower', extent=[lon.min(), lon.max(), lat.min(), lat.max()], cmap='coolwarm', vmin=vmin, vmax=vmax)
     cbar = fig.colorbar(im, ax=ax, orientation='vertical')
     cbar.set_label(unit_plot)
 
@@ -367,7 +372,7 @@ def create_animation(field, time, lon, lat, output_name, unit_plot):
     # Function to update the plot for each frame
     def update_frame(frame):
         ax.clear()
-        im = ax.imshow(field[frame, :, :], origin='lower', extent=[lon.min(), lon.max(), lat.min(), lat.max()], cmap='coolwarm')
+        im = ax.imshow(field[frame, :, :], origin='lower', extent=[lon.min(), lon.max(), lat.min(), lat.max()], cmap='coolwarm', vmin=vmin, vmax=vmax)
         ax.set_xlabel('Longitude (degree east)')
         ax.set_ylabel('Latitude (degree north)')
         ax.set_title('Time: ' +str(time[frame]) + ' day')

@@ -60,7 +60,7 @@ class ACCResSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc_runs/acc_simulation_twelvth_spinup/acc_simulation_twelvth_spinup"
+        settings.identifier = "acc_runs/acc_simulation_twelvth_spinup_2GPU/acc_simulation_twelvth_spinup_2GPU"
         settings.description = "ACC simulation twelvth spinup"
         settings.restart_input_filename = None
         

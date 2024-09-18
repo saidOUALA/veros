@@ -227,15 +227,15 @@ def diagnose_kernel(state):
             )
         )
     )
-    if settings.compute_resolved_eke:
+    if settings.compute_resolved_eke:     
         r_eke_m = global_sum(
             npx.sum(
                 vol_t
                 * 0.5
                 * (
-                    0.5 * ((vs.u[2:-2, 2:-2, :, vs.tau] - vs.u_bar[2:-2, 2:-2, :]) ** 2 + (vs.u[1:-3, 2:-2, :, vs.tau] - vs.u_bar[2:-2, 2:-2, :]) ** 2)
+                    0.5 * ((vs.u[2:-2, 2:-2, :, vs.tau] - vs.u_bar[2:-2, 2:-2, :]) ** 2 + (vs.u[1:-3, 2:-2, :, vs.tau] - vs.u_bar[1:-3, 2:-2, :]) ** 2)
                     + 0.5 * ((vs.v[2:-2, 2:-2, :, vs.tau] - vs.v_bar[2:-2, 2:-2, :]) ** 2)
-                    + (vs.v[2:-2, 1:-3, :, vs.tau] - vs.v_bar[2:-2, 2:-2, :]) ** 2
+                    + (vs.v[2:-2, 1:-3, :, vs.tau] - vs.v_bar[2:-2, 1:-3, :]) ** 2
                 )
             )
         )
@@ -382,7 +382,7 @@ def diagnose_kernel(state):
 
     return KernelOutput(
         k_m=k_m,
-        r_eke_m=k_m,
+        r_eke_m=r_eke_m,
         Hd_m=p_m,
         eke_m=eke_m,
         iw_m=iw_m,

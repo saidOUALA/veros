@@ -2,6 +2,13 @@
 *.nc
 *.h5
 
+# server files 
+*.sh
+
+# notebooks
+*.ipynb
+
+
 # log files server
 *.out
 
