@@ -7,28 +7,30 @@ from veros.core.operators import numpy as npx, update, at
 
 
 class ACCLearningSetup(VerosSetup):
-    """A model using spherical coordinates with a partially closed domain representing the Atlantic and ACC.
-
-    Wind forcing over the channel part and buoyancy relaxation drive a large-scale meridional overturning circulation.
-
-    This setup demonstrates:
-     - setting up an idealized geometry
-     - updating surface forcings
-     - basic usage of diagnostics
-
-    `Adapted from pyOM2 <https://wiki.cen.uni-hamburg.de/ifm/TO/pyOM2/ACC%202>`_.
-    """
 
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc_learning"
+        settings.identifier = "acc_runs/acc_rbot_training/acc_rbot_training"
         settings.description = "My ACC setup"
-
-        settings.nx, settings.ny, settings.nz = 30, 42, 15
-        settings.dt_mom = 4800
-        settings.dt_tracer = 4800#86400 / 2.0
-        settings.runlen = 10 * settings.dt_tracer#86400 * 365
+        settings.restart_input_filename = None
+        
+        # for diagnosing resolved eke
+        settings.compute_resolved_eke = False
+        settings.avg_file_path = None
+        # enable diagnostics plot for acc simulation
+        settings.acc_plot = False
+        settings.acc_animation = False
+        
+        nb_years = 4
+        seconds_per_year = 31557600
+        res = 1/4
+        delta = 2/res
+        ratio = delta**2
+        settings.nx, settings.ny, settings.nz = 248,324,15#,30, 42, 15
+        settings.dt_mom = 4800/delta
+        settings.dt_tracer = 4800/delta
+        settings.runlen = 10*settings.dt_mom #/(settings.dt_tracer/delta) #delta*100000 * settings.dt_tracer*2/3
 
         settings.x_origin = 0.0
         settings.y_origin = -40.0
@@ -36,20 +38,21 @@ class ACCLearningSetup(VerosSetup):
         settings.coord_degree = True
         settings.enable_cyclic_x = True
 
+        # coefs for isopycnal tracer diffusion 
         settings.enable_neutral_diffusion = True
-        settings.K_iso_0 = 1000.0
-        settings.K_iso_steep = 500.0
+        settings.K_iso_0 = 1000.0/ratio
+        settings.K_iso_steep = 500.0/ratio
         settings.iso_dslope = 0.005
         settings.iso_slopec = 0.01
         settings.enable_skew_diffusion = True
 
         settings.enable_hor_friction = True
-        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11
+        settings.A_h = ((2 * settings.degtom) ** 3 * 2e-11/ratio)
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
 
         settings.enable_bottom_friction = True
-        settings.r_bot = 1e-5
+        settings.r_bot = 1e-5#*10# wrong rbot
 
         settings.enable_implicit_vert_friction = True
 
@@ -63,14 +66,14 @@ class ACCLearningSetup(VerosSetup):
         settings.kappaH_min = 2e-5
         settings.enable_kappaH_profile = True
 
-        settings.K_gm_0 = 1000.0
+        settings.K_gm_0 = 1000.0/ratio
         settings.enable_eke = True
-        settings.eke_k_max = 1e4
+        settings.eke_k_max = 1e4/ratio
         settings.eke_c_k = 0.4
         settings.eke_c_eps = 0.5
         settings.eke_cross = 2.0
         settings.eke_crhin = 1.0
-        settings.eke_lmin = 100.0
+        settings.eke_lmin = 100.0/100
         settings.enable_eke_superbee_advection = True
         settings.enable_eke_isopycnal_diffusion = True
 
@@ -78,6 +81,7 @@ class ACCLearningSetup(VerosSetup):
 
         settings.eq_of_state_type = 3
 
+        
         var_meta = state.var_meta
         var_meta.update(
             t_star=Variable("t_star", ("yt",), "deg C", "Reference surface temperature"),
@@ -90,8 +94,8 @@ class ACCLearningSetup(VerosSetup):
         ddz = npx.array(
             [50.0, 70.0, 100.0, 140.0, 190.0, 240.0, 290.0, 340.0, 390.0, 440.0, 490.0, 540.0, 590.0, 640.0, 690.0]
         )
-        vs.dxt = update(vs.dxt, at[...], 2.0)
-        vs.dyt = update(vs.dyt, at[...], 2.0)
+        vs.dxt = update(vs.dxt, at[...], 1/4)
+        vs.dyt = update(vs.dyt, at[...], 1/4)
         vs.dzt = update(vs.dzt, at[...], ddz[::-1] / 2.5)
 
     @veros_routine
@@ -108,6 +112,8 @@ class ACCLearningSetup(VerosSetup):
         x, y = npx.meshgrid(vs.xt, vs.yt, indexing="ij")
         vs.kbot = npx.logical_or(x > 1.0, y < -20).astype("int")
 
+        
+        
     @veros_routine
     def set_initial_conditions(self, state):
         vs = state.variables
@@ -148,7 +154,15 @@ class ACCLearningSetup(VerosSetup):
         if settings.enable_idemix:
             vs.forc_iw_bottom = 1e-6 * vs.maskW[:, :, -1]
             vs.forc_iw_surface = 1e-7 * vs.maskW[:, :, -1]
-
+        
+        if settings.compute_resolved_eke:
+            # load u_bar and v_bar from 
+            file_avg = nc.Dataset(settings.avg_file_path)
+            vs.u_bar = update(vs.u_bar, at[2:-2,2:-2,...], file_avg.variables['u'][:][-4:].mean(axis = 0).T)
+            vs.v_bar = update(vs.v_bar, at[2:-2,2:-2,...], file_avg.variables['v'][:][-4:].mean(axis = 0).T)
+            vs.u_bar = enforce_boundaries(vs.u_bar, settings.enable_cyclic_x)
+            vs.v_bar = enforce_boundaries(vs.v_bar, settings.enable_cyclic_x)
+            
     @veros_routine
     def set_initial_conditions_learning(self, state, init_cond):
         for key in init_cond.keys():
@@ -157,7 +171,7 @@ class ACCLearningSetup(VerosSetup):
             except KeyError:
                 raise RuntimeError(f"No restart data found for variable {key} in {init_cond}") from None
             setattr(state.variables, key, var_data)
-
+            
     @veros_routine
     def set_forcing(self, state):
         vs = state.variables
@@ -167,28 +181,8 @@ class ACCLearningSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-        """
-        diagnostics["snapshot"].output_frequency = settings.dt_mom  # 86400 * 10
         
-        diagnostics["snapshot"].output_frequency = settings.dt_tracer#86400 * 10
-        diagnostics["averages"].output_variables = (
-            "salt",
-            "temp",
-            "u",
-            "v",
-            "w",
-            "psi",
-            "surface_taux",
-            "surface_tauy",
-        )
-        diagnostics["averages"].output_frequency = 365 * 86400.0
-        diagnostics["averages"].sampling_frequency = settings.dt_tracer * 10
-        diagnostics["overturning"].output_frequency = 365 * 86400.0 / 48.0
-        diagnostics["overturning"].sampling_frequency = settings.dt_tracer * 10
-        diagnostics["tracer_monitor"].output_frequency = 365 * 86400.0 / 12.0
-        diagnostics["energy"].output_frequency = 365 * 86400.0 / 48
-        diagnostics["energy"].sampling_frequency = settings.dt_tracer * 10
-        """
+       
     @veros_routine
     def after_timestep(self, state):
         pass

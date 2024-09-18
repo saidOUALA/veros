@@ -42,9 +42,9 @@ class ACCResSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc_runs/acc_simulation_quarter/acc_simulation_quarter_post_spinup_test"
+        settings.identifier = "acc_runs/acc_simulation_quarter_post_spinup_GT_training/acc_simulation_quarter_post_spinup_GT_training"
         settings.description = "My ACC setup"
-        settings.restart_input_filename = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup_0144.restart.h5"
+        settings.restart_input_filename = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup_736344.restart.h5"
         
         # for diagnosing resolved eke
         settings.compute_resolved_eke = True
@@ -61,7 +61,7 @@ class ACCResSetup(VerosSetup):
         settings.nx, settings.ny, settings.nz = 248,324,15#,30, 42, 15
         settings.dt_mom = 4800/delta
         settings.dt_tracer = 4800/delta
-        settings.runlen = nb_years * seconds_per_year#/(settings.dt_tracer/delta) #delta*100000 * settings.dt_tracer*2/3
+        settings.runlen = 1000*settings.dt_mom#nb_years * seconds_per_year#/(settings.dt_tracer/delta) #delta*100000 * settings.dt_tracer*2/3
 
         settings.x_origin = 0.0
         settings.y_origin = -40.0
@@ -78,12 +78,12 @@ class ACCResSetup(VerosSetup):
         settings.enable_skew_diffusion = True
 
         settings.enable_hor_friction = True
-        settings.A_h = (2 * settings.degtom) ** 3 * 2e-11/ratio
+        settings.A_h = ((2 * settings.degtom) ** 3 * 2e-11/ratio)
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
 
         settings.enable_bottom_friction = True
-        settings.r_bot = 1e-5
+        settings.r_bot = 1e-5#*10
 
         settings.enable_implicit_vert_friction = True
 
@@ -204,7 +204,10 @@ class ACCResSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-        diagnostics["snapshot"].output_frequency = 86400 # 1 day
+        diagnostics["training"].output_frequency = settings.dt_mom
+        
+        
+        diagnostics["snapshot"].output_frequency = 86400*10 # 10 day
         diagnostics["snapshot"].output_variables = (
             "salt",
             "temp",
