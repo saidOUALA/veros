@@ -7,7 +7,7 @@ from veros.io_tools.netcdf import extract_init_cond, load_timesteps_between
 import random 
 
 # path to training simulation:
-path_training = "acc_runs/acc_simulation_quarter_post_spinup_GT_training/acc_simulation_quarter_post_spinup_GT_training"
+path_training = "acc_runs/acc_simulation_quarter_post_spinup_GT_training_chunked/acc_simulation_quarter_post_spinup_GT_training_chunked"
 # setup learning simulation
 simulation = ACCLearningSetup()
 simulation.setup()
@@ -17,7 +17,7 @@ n_steps = int(simulation.state.settings.runlen/simulation.state.settings.dt_mom)
 restart_vars = {var: meta for var, meta in simulation.state.var_meta.items() if meta.write_to_restart and meta.active}
 
 for i in range(100):
-    random_list = random.sample(range(100), 32)
+    random_list = random.sample(range(8), 6)
     for b in range(len(random_list)):
         print('batch : ', b)
         start_timestep = random_list[b]
