@@ -1,10 +1,18 @@
 import numpy as np
+from veros import runtime_settings
+setattr(runtime_settings, 'backend', 'jax')
+setattr(runtime_settings, 'device', 'gpu')
+setattr(runtime_settings, 'force_overwrite', True)
+setattr(runtime_settings, 'linear_solver', 'scipy_jax')
 import netCDF4 as nc
 import matplotlib.pyplot as plt
 # from veros.setups.global_1deg_learning import GlobalOneDegreeLearningSetup
 from veros.setups.acc_learning import ACCLearningSetup
 from veros.io_tools.netcdf import extract_init_cond, load_timesteps_between
 import random 
+
+
+
 
 # path to training simulation:
 path_training = "acc_runs/acc_simulation_quarter_post_spinup_GT_training_chunked/acc_simulation_quarter_post_spinup_GT_training_chunked"
