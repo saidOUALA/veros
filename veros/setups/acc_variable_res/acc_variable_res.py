@@ -42,16 +42,16 @@ class ACCResSetup(VerosSetup):
     @veros_routine
     def set_parameter(self, state):
         settings = state.settings
-        settings.identifier = "acc_runs/acc_simulation_quarter_post_spinup_GT_training_chunked/acc_simulation_quarter_post_spinup_GT_training_chunked"
+        settings.identifier = "acc_runs/acc_simulation_quarter_post_spinup/acc_simulation_quarter_post_spinup"
         settings.description = "My ACC setup"
         settings.restart_input_filename = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup_736344.restart.h5"
         
         # for diagnosing resolved eke
-        settings.compute_resolved_eke = False
+        settings.compute_resolved_eke = True
         settings.avg_file_path = "acc_runs/acc_simulation_quarter_spinup/acc_simulation_quarter_spinup.averages.nc"
         # enable diagnostics plot for acc simulation
-        settings.acc_plot = False
-        settings.acc_animation = False
+        settings.acc_plot = True
+        settings.acc_animation = True
         
         nb_years = 4# a chunk, for testing
         seconds_per_year = 31557600
@@ -61,7 +61,7 @@ class ACCResSetup(VerosSetup):
         settings.nx, settings.ny, settings.nz = 248,324,15#,30, 42, 15
         settings.dt_mom = 4800/delta
         settings.dt_tracer = 4800/delta
-        settings.runlen = 20*settings.dt_mom#nb_years * seconds_per_year#/(settings.dt_tracer/delta) #delta*100000 * settings.dt_tracer*2/3
+        settings.runlen = nb_years * seconds_per_year#/(settings.dt_tracer/delta) #delta*100000 * settings.dt_tracer*2/3
 
         settings.x_origin = 0.0
         settings.y_origin = -40.0
@@ -204,7 +204,7 @@ class ACCResSetup(VerosSetup):
     def set_diagnostics(self, state):
         settings = state.settings
         diagnostics = state.diagnostics
-        diagnostics["training"].output_frequency = settings.dt_mom
+        #diagnostics["training"].output_frequency = settings.dt_mom
         
         
         diagnostics["snapshot"].output_frequency = 86400*10 # 10 day
