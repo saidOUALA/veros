@@ -586,6 +586,7 @@ VARIABLES = {
         "m^2/s^3",
         "Potential energy dissipation by external sources (e.g. restoring zones)",
     ),
+    "A_h": Variable("lateral viscosity", None, "m^2/s", "lateral viscosity", initial=0.0),
     "r_bot": Variable("bottom friction coefficient", None, "1/s", "bottom friction coefficient", initial=0.0),
     "c_k": Variable("TKE mixing length constant", None, "", "TKE mixing length constant", initial=0.1),
     "c_eps": Variable("TKE dissipation constant", None, "", "TKE dissipation constant", initial=0.7),

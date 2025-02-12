@@ -392,7 +392,7 @@ def harmonic_friction(state):
         flux_east = update(
             flux_east,
             at[:-1],
-            settings.A_h
+            vs.A_h
             * fxa[npx.newaxis, :, npx.newaxis]
             * (vs.u[1:, :, :, vs.tau] - vs.u[:-1, :, :, vs.tau])
             / (vs.cost * vs.dxt[1:, npx.newaxis])[:, :, npx.newaxis]
@@ -403,7 +403,7 @@ def harmonic_friction(state):
         flux_north = update(
             flux_north,
             at[:, :-1],
-            settings.A_h
+            vs.A_h
             * fxa[npx.newaxis, :-1, npx.newaxis]
             * (vs.u[:, 1:, :, vs.tau] - vs.u[:, :-1, :, vs.tau])
             / vs.dyu[npx.newaxis, :-1, npx.newaxis]
@@ -416,7 +416,7 @@ def harmonic_friction(state):
                 flux_north,
                 at[:, :-1],
                 2
-                * settings.A_h
+                * vs.A_h
                 * fxa[npx.newaxis, :-1, npx.newaxis]
                 * (vs.u[:, 1:, :, vs.tau])
                 / vs.dyu[npx.newaxis, :-1, npx.newaxis]
@@ -424,7 +424,7 @@ def harmonic_friction(state):
                 * (1 - vs.maskU[:, :-1])
                 * vs.cosu[npx.newaxis, :-1, npx.newaxis]
                 - 2
-                * settings.A_h
+                * vs.A_h
                 * fxa[npx.newaxis, :-1, npx.newaxis]
                 * (vs.u[:, :-1, :, vs.tau])
                 / vs.dyu[npx.newaxis, :-1, npx.newaxis]
@@ -436,7 +436,7 @@ def harmonic_friction(state):
         flux_east = update(
             flux_east,
             at[:-1, :, :],
-            settings.A_h
+            vs.A_h
             * (vs.u[1:, :, :, vs.tau] - vs.u[:-1, :, :, vs.tau])
             / (vs.cost * vs.dxt[1:, npx.newaxis])[:, :, npx.newaxis]
             * vs.maskU[1:]
@@ -445,7 +445,7 @@ def harmonic_friction(state):
         flux_north = update(
             flux_north,
             at[:, :-1, :],
-            settings.A_h
+            vs.A_h
             * (vs.u[:, 1:, :, vs.tau] - vs.u[:, :-1, :, vs.tau])
             / vs.dyu[npx.newaxis, :-1, npx.newaxis]
             * vs.maskU[:, 1:]
@@ -457,14 +457,14 @@ def harmonic_friction(state):
                 flux_north,
                 at[:, :-1],
                 2
-                * settings.A_h
+                * vs.A_h
                 * vs.u[:, 1:, :, vs.tau]
                 / vs.dyu[npx.newaxis, :-1, npx.newaxis]
                 * vs.maskU[:, 1:]
                 * (1 - vs.maskU[:, :-1])
                 * vs.cosu[npx.newaxis, :-1, npx.newaxis]
                 - 2
-                * settings.A_h
+                * vs.A_h
                 * vs.u[:, :-1, :, vs.tau]
                 / vs.dyu[npx.newaxis, :-1, npx.newaxis]
                 * (1 - vs.maskU[:, 1:])
@@ -519,7 +519,7 @@ def harmonic_friction(state):
         flux_east = update(
             flux_east,
             at[:-1],
-            settings.A_h
+            vs.A_h
             * vs.cosu[npx.newaxis, :, npx.newaxis] ** settings.hor_friction_cosPower
             * (vs.v[1:, :, :, vs.tau] - vs.v[:-1, :, :, vs.tau])
             / (vs.cosu * vs.dxu[:-1, npx.newaxis])[:, :, npx.newaxis]
@@ -532,14 +532,14 @@ def harmonic_friction(state):
                 flux_east,
                 at[:-1],
                 2
-                * settings.A_h
+                * vs.A_h
                 * fxa[npx.newaxis, :, npx.newaxis]
                 * vs.v[1:, :, :, vs.tau]
                 / (vs.cosu * vs.dxu[:-1, npx.newaxis])[:, :, npx.newaxis]
                 * vs.maskV[1:]
                 * (1 - vs.maskV[:-1])
                 - 2
-                * settings.A_h
+                * vs.A_h
                 * fxa[npx.newaxis, :, npx.newaxis]
                 * vs.v[:-1, :, :, vs.tau]
                 / (vs.cosu * vs.dxu[:-1, npx.newaxis])[:, :, npx.newaxis]
@@ -550,7 +550,7 @@ def harmonic_friction(state):
         flux_north = update(
             flux_north,
             at[:, :-1],
-            settings.A_h
+            vs.A_h
             * vs.cost[npx.newaxis, 1:, npx.newaxis] ** settings.hor_friction_cosPower
             * (vs.v[:, 1:, :, vs.tau] - vs.v[:, :-1, :, vs.tau])
             / vs.dyt[npx.newaxis, 1:, npx.newaxis]
@@ -562,7 +562,7 @@ def harmonic_friction(state):
         flux_east = update(
             flux_east,
             at[:-1],
-            settings.A_h
+            vs.A_h
             * (vs.v[1:, :, :, vs.tau] - vs.v[:-1, :, :, vs.tau])
             / (vs.cosu * vs.dxu[:-1, npx.newaxis])[:, :, npx.newaxis]
             * vs.maskV[1:]
@@ -574,13 +574,13 @@ def harmonic_friction(state):
                 flux_east,
                 at[:-1],
                 2
-                * settings.A_h
+                * vs.A_h
                 * vs.v[1:, :, :, vs.tau]
                 / (vs.cosu * vs.dxu[:-1, npx.newaxis])[:, :, npx.newaxis]
                 * vs.maskV[1:]
                 * (1 - vs.maskV[:-1])
                 - 2
-                * settings.A_h
+                * vs.A_h
                 * vs.v[:-1, :, :, vs.tau]
                 / (vs.cosu * vs.dxu[:-1, npx.newaxis])[:, :, npx.newaxis]
                 * (1 - vs.maskV[1:])
@@ -590,7 +590,7 @@ def harmonic_friction(state):
         flux_north = update(
             flux_north,
             at[:, :-1],
-            settings.A_h
+            vs.A_h
             * (vs.v[:, 1:, :, vs.tau] - vs.v[:, :-1, :, vs.tau])
             / vs.dyt[npx.newaxis, 1:, npx.newaxis]
             * vs.cost[npx.newaxis, 1:, npx.newaxis]
