@@ -6,6 +6,8 @@ from veros.variables import allocate
 from veros.core import advection, diffusion, isoneutral, density, utilities
 from veros.core.operators import update, update_add, at
 
+import jax
+
 
 @veros_kernel
 def advect_tracer(state, tr):
@@ -398,11 +400,10 @@ def thermodynamics(state):
     """
     Advection tendencies for temperature, salinity and dynamic enthalpy
     """
+    
     vs = state.variables
     settings = state.settings
-
     vs.update(advect_temp_salt_enthalpy(state))
-
     """
     horizontal diffusion
     """
@@ -422,6 +423,7 @@ def thermodynamics(state):
         """
         isopycnal diffusion
         """
+        
         if settings.enable_neutral_diffusion:
             vs.P_diss_iso = update(vs.P_diss_iso, at[...], 0.0)
             vs.dtemp_iso = update(vs.dtemp_iso, at[...], 0.0)

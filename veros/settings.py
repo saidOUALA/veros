@@ -69,7 +69,7 @@ SETTINGS = {
         "solve for external mode with barotropic streamfunction, else solve for surface pressure and sea surface height",
     ),
     # Mixing parameters
-    "A_h": Setting(0.0, float, "lateral viscosity in m^2/s"),
+    #"A_h": Setting(0.0, float, "lateral viscosity in m^2/s"),
     "K_h": Setting(0.0, float, "lateral diffusivity in m^2/s"),
     "r_ray": Setting(0.0, float, "Rayleigh damping coefficient in 1/s"),
     #"r_bot": Setting(0.0, float, "bottom friction coefficient in 1/s"),

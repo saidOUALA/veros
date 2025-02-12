@@ -474,7 +474,7 @@ class VerosState:
         Return a copy full of zeros
         """
         def set_to_zero(x):
-            if jnp.issubdtype(x.dtype, jnp.integer) or jnp.issubdtype(x.dtype, jnp.bool) : 
+            if jnp.issubdtype(x.dtype, jnp.integer) or jnp.issubdtype(x.dtype, jnp.bool_) : 
                 return np.zeros_like(x, dtype=jax.dtypes.float0)
             return jnp.zeros_like(x) 
 

@@ -7,6 +7,8 @@ from veros.plugins import load_plugin
 from veros.routines import veros_routine, is_veros_routine
 from veros.timer import timer_context
 
+import jax
+
 
 class VerosSetup(metaclass=abc.ABCMeta):
     """Main class for Veros, used for building a model and running it.
@@ -241,11 +243,9 @@ class VerosSetup(metaclass=abc.ABCMeta):
         from veros.core import idemix, eke, tke, momentum, thermodynamics, advection, utilities, isoneutral, numerics
 
         self._ensure_setup_done()
-
+        
         vs = state.variables
         settings = state.settings
-        #print'begin : ', vs.tke.sum())
-
         with state.timers["diagnostics"]:
             restart.write_restart(state) # (routine)
 
@@ -261,17 +261,23 @@ class VerosSetup(metaclass=abc.ABCMeta):
                 eke.set_eke_diffusivities(state) # (routine) Nsqr -> K_m, K_iso (L_rossby ...)
 
             with state.timers["tke"]:
-                tke.set_tke_diffusivities(state) # (routine) Nsqr, tke -> KappaM, KappaH, Rinumber, K_diss_v
+                tke.set_tke_diffusivities((state))
+                #tke.set_tke_diffusivities(state) # (routine) Nsqr, tke -> KappaM, KappaH, Rinumber, K_diss_v
 
             with state.timers["momentum"]:
                 momentum.momentum(state) # (routine)
 
+
             with state.timers["thermodynamics"]:
+                original_r_bot = state.variables.r_bot.copy()
+                state.variables.r_bot = jax.lax.stop_gradient(state.variables.r_bot)
                 thermodynamics.thermodynamics(state) # (routine)
+                state.variables.r_bot = original_r_bot
 
             if settings.enable_eke or settings.enable_tke or settings.enable_idemix:
                 with state.timers["advection"]:
-                    advection.calculate_velocity_on_wgrid(state) # (routine)
+                    advection.calculate_velocity_on_wgrid((state))
+                    #advection.calculate_velocity_on_wgrid(state) # (routine)
 
             with state.timers["eke"]:
                 if state.settings.enable_eke:
@@ -284,7 +290,8 @@ class VerosSetup(metaclass=abc.ABCMeta):
             #print('before_integrate : ', vs.tke.sum())
             with state.timers["tke"]:
                 if state.settings.enable_tke:
-                    tke.integrate_tke(state)  # (routine)
+                    tke.integrate_tke((state))
+                    #tke.integrate_tke(state)  # (routine)
             #print('after_integrate : ', vs.tke.sum())
 
             with state.timers["boundary_exchange"]:
@@ -292,6 +299,7 @@ class VerosSetup(metaclass=abc.ABCMeta):
                 vs.v = utilities.enforce_boundaries(vs.v, settings.enable_cyclic_x)
                 if settings.enable_tke:
                     vs.tke = utilities.enforce_boundaries(vs.tke, settings.enable_cyclic_x)
+                    #vs.tke = utilities.enforce_boundaries(vs.tke, settings.enable_cyclic_x)
                 if settings.enable_eke:
                     vs.eke = utilities.enforce_boundaries(vs.eke, settings.enable_cyclic_x)
                 if settings.enable_idemix:
@@ -356,6 +364,7 @@ class VerosSetup(metaclass=abc.ABCMeta):
         try:
             with signals.signals_to_exception(), pbar:
                 while vs.time - start_time < settings.runlen:
+                    
                     self.step(self.state)
 
                     if not timer_context.active:

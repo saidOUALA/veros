@@ -98,7 +98,7 @@ def read_restart(state):
                 raise RuntimeError(f"No restart data found for variable {key} in {restart_filename}") from None
 
             setattr(state.variables, key, var_data)
-
+        
         # diagnostic restarts
         for diag_name, diagnostic in state.diagnostics.items():
             if not diagnostic.var_meta:
