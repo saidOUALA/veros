@@ -7,7 +7,7 @@ import jax.numpy as jnp
 import numpy as np
 import jax
 
-from ipdb import set_trace
+#from ipdb import set_trace
 
 from veros import (
     plugins,

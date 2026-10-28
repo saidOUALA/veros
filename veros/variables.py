@@ -434,6 +434,7 @@ VARIABLES = {
         "m",
         "Sea surface height",
         active=lambda settings: not settings.enable_streamfunction,
+        write_to_restart=lambda settings: not settings.enable_streamfunction,
     ),
     "psi": Variable(
         lambda settings: "Streamfunction" if settings.enable_streamfunction else "Surface pressure",
