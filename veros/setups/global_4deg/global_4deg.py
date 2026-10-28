@@ -60,8 +60,8 @@ class GlobalFourDegreeSetup(VerosSetup):
 
         settings.enable_implicit_vert_friction = True
         settings.enable_tke = True
-        settings.c_k = 0.1
-        settings.c_eps = 0.7
+        # c_k, c_eps are Variables (not Settings) in differentiable-veros,
+        # default initial values (0.1, 0.7) already match this setup's intent.
         settings.alpha_tke = 30.0
         settings.mxl_min = 1e-8
         settings.tke_mxl_choice = 2
