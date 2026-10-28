@@ -6,8 +6,6 @@ from veros.state import get_default_state
 from veros.plugins import load_plugin
 from veros.routines import veros_routine, is_veros_routine
 
-import jax
-
 
 class VerosSetup(metaclass=abc.ABCMeta):
     """Main class for Veros, used for building a model and running it.
@@ -259,11 +257,7 @@ class VerosSetup(metaclass=abc.ABCMeta):
 
         momentum.momentum(state) # (routine)
 
-        # bottom friction acts on momentum only: no gradient through the tracer equations
-        original_r_bot = state.variables.r_bot.copy()
-        state.variables.r_bot = jax.lax.stop_gradient(state.variables.r_bot)
         thermodynamics.thermodynamics(state) # (routine)
-        state.variables.r_bot = original_r_bot
 
         if settings.enable_eke or settings.enable_tke or settings.enable_idemix:
             advection.calculate_velocity_on_wgrid(state) # (routine)
