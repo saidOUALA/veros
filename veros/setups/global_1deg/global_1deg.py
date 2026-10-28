@@ -39,7 +39,7 @@ class GlobalOneDegreeSetup(VerosSetup):
         settings.enable_cyclic_x = True
 
         settings.enable_hor_friction = True
-        settings.A_h = 5e4
+        # A_h is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
         settings.enable_tempsalt_sources = True
@@ -57,8 +57,8 @@ class GlobalOneDegreeSetup(VerosSetup):
 
         # tke
         settings.enable_tke = True
-        settings.c_k = 0.1
-        settings.c_eps = 0.7
+        # c_k, c_eps are Variables (not Settings) in differentiable-veros,
+        # default initial values (0.1, 0.7) already match this setup's intent.
         settings.alpha_tke = 30.0
         settings.mxl_min = 1e-8
         settings.tke_mxl_choice = 1
@@ -177,6 +177,8 @@ class GlobalOneDegreeSetup(VerosSetup):
     )
     def set_initial_conditions(self, state):
         vs = state.variables
+        # differentiable parameters are model variables
+        vs.A_h = update(vs.A_h, at[...], 5e4)
         settings = state.settings
 
         rpart_shortwave = 0.58

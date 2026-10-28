@@ -61,15 +61,15 @@ class NorthAtlanticSetup(VerosSetup):
         settings.iso_slopec = 4.0 / 1000.0
 
         settings.enable_hor_friction = True
-        settings.A_h = 1e3
+        # A_h is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
         settings.enable_tempsalt_sources = True
 
         settings.enable_implicit_vert_friction = True
         settings.enable_tke = True
-        settings.c_k = 0.1
-        settings.c_eps = 0.7
+        # c_k, c_eps are Variables (not Settings) in differentiable-veros,
+        # default initial values (0.1, 0.7) already match this setup's intent.
         settings.alpha_tke = 30.0
         settings.mxl_min = 1e-8
         settings.tke_mxl_choice = 2
@@ -77,7 +77,7 @@ class NorthAtlanticSetup(VerosSetup):
         settings.kappaH_min = 2e-5
         settings.enable_kappaH_profile = True
 
-        settings.K_gm_0 = 1000.0
+        # K_gm_0 is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
 
         settings.enable_eke = False
         settings.enable_idemix = False
@@ -186,6 +186,9 @@ class NorthAtlanticSetup(VerosSetup):
     )
     def set_initial_conditions(self, state):
         vs = state.variables
+        # differentiable parameters are model variables
+        vs.A_h = update(vs.A_h, at[...], 1e3)
+        vs.K_gm_0 = update(vs.K_gm_0, at[...], 1000.0)
 
         with h5netcdf.File(DATA_FILES["forcing"], "r") as forcing_file:
             t_hor = (vs.xt[2:-2], vs.yt[2:-2])

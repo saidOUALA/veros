@@ -37,18 +37,18 @@ def main(pyom2_lib, timesteps, size):
             settings.enable_skew_diffusion = True
 
             settings.enable_hor_friction = True
-            settings.A_h = (2 * settings.degtom) ** 3 * 2e-11
+            # A_h is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
             settings.enable_hor_friction_cos_scaling = True
             settings.hor_friction_cosPower = 1
 
             settings.enable_bottom_friction = True
-            settings.r_bot = 1e-5
+            # r_bot is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
 
             settings.enable_implicit_vert_friction = True
 
             settings.enable_tke = True
-            settings.c_k = 0.1
-            settings.c_eps = 0.7
+            # c_k, c_eps are Variables (not Settings) in differentiable-veros,
+            # default initial values (0.1, 0.7) already match this setup's intent.
             settings.alpha_tke = 30.0
             settings.mxl_min = 1e-8
             settings.tke_mxl_choice = 2
@@ -57,7 +57,7 @@ def main(pyom2_lib, timesteps, size):
             settings.enable_kappaH_profile = False
             settings.enable_Prandtl_tke = False
 
-            settings.K_gm_0 = 1000.0
+            # K_gm_0 is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
             settings.enable_eke = True
             settings.eke_k_max = 1e4
             settings.eke_c_k = 0.4
@@ -108,6 +108,10 @@ def main(pyom2_lib, timesteps, size):
         @veros_routine
         def set_initial_conditions(self, state):
             vs = state.variables
+            # differentiable parameters are model variables
+            vs.A_h = update(vs.A_h, at[...], (2 * state.settings.degtom) ** 3 * 2e-11)
+            vs.r_bot = update(vs.r_bot, at[...], 1e-5)
+            vs.K_gm_0 = update(vs.K_gm_0, at[...], 1000.0)
             settings = state.settings
 
             # initial conditions

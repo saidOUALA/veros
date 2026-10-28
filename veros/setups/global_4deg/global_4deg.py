@@ -54,7 +54,7 @@ class GlobalFourDegreeSetup(VerosSetup):
         settings.enable_skew_diffusion = True
 
         settings.enable_hor_friction = True
-        settings.A_h = (4 * settings.degtom) ** 3 * 2e-11
+        # A_h is a Variable (not a Setting) in differentiable-veros: set in set_initial_conditions
         settings.enable_hor_friction_cos_scaling = True
         settings.hor_friction_cosPower = 1
 
@@ -155,6 +155,8 @@ class GlobalFourDegreeSetup(VerosSetup):
     )
     def set_initial_conditions(self, state):
         vs = state.variables
+        # differentiable parameters are model variables
+        vs.A_h = update(vs.A_h, at[...], (4 * state.settings.degtom) ** 3 * 2e-11)
         settings = state.settings
 
         # initial conditions for T and S
